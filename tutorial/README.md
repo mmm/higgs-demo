@@ -50,7 +50,8 @@ of fewer, more fundamental interactions.
 
 the first three of which are quite familiar in everyday life.
 
-On 4 July 2012, Researchers at European Council for Nuclear Research (CERN) reported 
+On 4 July 2012, Researchers at European Council for Nuclear Research (CERN) 
+[announced](https://cms.cern/physics/higgs-boson/observation-new-particle-mass-125-gev)
 that they had recorded events in the ATLAS and CMS experiments at the LHC that had properties
 consistent with a new particle in this menagerie, the Higgs Boson.
 
