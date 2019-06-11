@@ -1,0 +1,18 @@
+#!/bin/bash
+
+################################
+## PART: install the packages
+##
+pkgs=(apt-utils
+      jq
+      ca-certificates
+      lsb-release
+      python-pip
+      python-virtualenv
+      tree
+)
+
+apt-get -qqy update
+apt-get -qqy install ${pkgs[@]}
+apt-get -qqy clean
+rm -rf /var/lib/apt/lists/*
