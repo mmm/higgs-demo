@@ -15,7 +15,7 @@ list-images:
 
 build:
 	@echo "--- $@ $(IMAGE) ---"
-	docker build -t $(IMAGE) .
+	docker build -t $(IMAGE) --build-arg=HOST_UID=$(shell id -u) --build-arg=HOST_GID=$(shell id -g) --build-arg=WHO=$(shell whoami) .
 
 tag: tag-version tag-latest 
 tag-version:
@@ -38,7 +38,7 @@ push-latest: tag-latest
 
 run:
 	@echo "--- $@ $(IMAGE):latest ---"
-	docker run -it --rm $(IMAGE):latest
+	docker run -it --rm --user $(shell id -u):$(shell id -g) $(IMAGE):latest
 
 
 clean:
