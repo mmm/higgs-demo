@@ -3,16 +3,27 @@
 ################################
 ## PART: install the packages
 ##
-pkgs=(apt-utils
+pkgutils=(apt-utils
+          debconf-utils
+          ca-certificates
+          lsb-release
+)
+
+################################
+## PART: install the packages
+##
+pkgs=(curl
+      wget
       jq
-      ca-certificates
-      lsb-release
       python-pip
+      python3-pip
       python-virtualenv
       tree
 )
 
+export DEBIAN_FRONTEND=noninteractive
 apt-get -qqy update
+apt-get -qqy install ${pkgutils[@]}
 apt-get -qqy install ${pkgs[@]}
 apt-get -qqy clean
 rm -rf /var/lib/apt/lists/*
