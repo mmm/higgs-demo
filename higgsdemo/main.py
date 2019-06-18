@@ -19,15 +19,15 @@ from kubernetes import watch
 class HiggsDemo(object):
 
     def __init__(self, dataset_pattern='*Higgs*', namespace='default',
-            image='lukasheinrich/cms-higgs-4l-full', access_key='',
+            image='gcr.io/mmm-0b85/cms-higgs-4l-full', access_key='',
             secret_key='', storage_type='gs', storage_host='https://storage.googleapis.com',
-            cpu_limit='900m', bucket='higgs-demo-nl', output_bucket='higgs-demo-nl',
+            cpu_limit='900m', bucket='higgs-tutorial', output_bucket='higgs-tutorial',
             backoff_limit=5,  multipart_threads=10, output_file='/tmp/output.root',
             output_json_file='/tmp/output.json', redis_host='10.0.0.4',
-            gcs_project_id='nimble-valve-236407',
+            gcs_project_id='mmm-0b85',
             download_max_kb=50000, upload_max_kb=10000,
             run='run6', limit=200, cluster=None, dataset_mapping=None,
-            dataset_index=None, gcs_region='europe-west4', prefix='kubecon-demo-',
+            dataset_index=None, gcs_region='us-central1', prefix='kubecon-demo-',
             dpath='/mnt/disks/ssd0'):
         super(HiggsDemo, self).__init__()
         self.dataset_pattern = dataset_pattern
@@ -169,7 +169,7 @@ class HiggsDemo(object):
             result = self.core_client.delete_collection_namespaced_pod(
                     self.namespace, limit = self.limit, _continue = c).to_dict()
             c = result['metadata'].get('_continue')
-      
+
     def _get_jobs(self):
         result = self.batch_client.list_namespaced_job(
                 self.namespace, limit=self.limit).to_dict()

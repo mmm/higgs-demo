@@ -87,7 +87,7 @@ class Submit(Command):
                             default='default',
                             help='the kube namespace to use')
         parser.add_argument('--image', dest='image',
-                            default='gcr.io/nimble-valve-236407/cms-higgs-4l-full',
+                            default='gcr.io/mmm-0b85/cms-higgs-4l-full',
                             help='the docker image to use for jobs')
         parser.add_argument('--access-key', dest='access_key',
                             default='',
@@ -102,10 +102,10 @@ class Submit(Command):
                             default='https://storage.googleapis.com',
                             help='the storage host(for s3 or gcs)')
         parser.add_argument('--bucket', dest='bucket',
-                            default='higgs-demo-nl',
+                            default='higgs-tutorial',
                             help='the name of the bucket holding the data')
         parser.add_argument('--output-bucket', dest='output_bucket',
-                            default='higgs-demo-nl',
+                            default='higgs-tutorial',
                             help='the name of the bucket to write the output')
         parser.add_argument('--cpu-limit', dest='cpu_limit',
                             default="900m",
@@ -132,7 +132,7 @@ class Submit(Command):
                             default='10.0.0.4',
                             help='the redis host to publish output data')
         parser.add_argument('--gcs-project-id', dest='gcs_project_id',
-                            default='nimble-valve-236407',
+                            default='mmm-0b85',
                             help='the gcs project id being used')
         parser.add_argument('--limit', dest='limit', type=int,
                             default=200,
@@ -152,7 +152,7 @@ class Submit(Command):
 
         import joblib
         jobs = joblib.Parallel(n_jobs=len(datasets))(joblib.delayed(parallel_submit)(parsed_args, i) for i, ds in enumerate(datasets))
-        
+
 
 class Watch(Command):
     "watch status of the higgs demo deployment in the currently configured cluster"
@@ -182,7 +182,7 @@ def parallel_prepare(args, i):
     args.cluster = '{0}{1}'.format(args.prefix, i)
     d = demo._higgs_demo(args)
     d.prepare()
-        
+
 
 class Prepare(Command):
     "prepare the cluster for a higgs demo deployment (image pull, ...)"
@@ -244,7 +244,7 @@ class ClustersCreate(Command):
     def get_parser(self, prog_name):
         parser = super(ClustersCreate, self).get_parser(prog_name)
         parser.add_argument('--gcs-project-id', dest='gcs_project_id',
-                            default='nimble-valve-236407',
+                            default='mmm-0b85',
                             help='the gcs project id being used')
         parser.add_argument('--gcs-region', dest='gcs_region',
                             default='europe-west4',
@@ -299,7 +299,7 @@ class ClustersDelete(Command):
     def get_parser(self, prog_name):
         parser = super(ClustersDelete, self).get_parser(prog_name)
         parser.add_argument('--gcs-project-id', dest='gcs_project_id',
-                            default='nimble-valve-236407',
+                            default='mmm-0b85',
                             help='the gcs project id being used')
         parser.add_argument('--gcs-region', dest='gcs_region',
                             default='europe-west4',
