@@ -21,12 +21,15 @@ COPY scripts/* /tmp/
 RUN bash /tmp/010-packages
 RUN bash /tmp/071-gcloud-sdk
 
+RUN echo "${WHO} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${WHO} \
+  && chmod 440 /etc/sudoers.d/${WHO}
+
 COPY requirements.txt /tmp/
 RUN pip3 install -r /tmp/requirements.txt
 
 COPY docker-entrypoint /usr/bin/
-RUN chown -Rf ${WHO}:${WHO} /usr/bin/docker-entrypoint
-RUN chmod +x /usr/bin/docker-entrypoint
+RUN chown -Rf ${WHO}:${WHO} /usr/bin/docker-entrypoint \
+  && chmod +x /usr/bin/docker-entrypoint
 
 ## expose ports for flask
 #EXPOSE 5000
