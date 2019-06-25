@@ -13,13 +13,16 @@ pkgutils=(apt-utils
 ## PART: install the packages
 ##
 pkgs=(curl
-      wget
       jq
-      sudo
+      less
       python-pip
-      python3-pip
       python-virtualenv
+      python3-pip
+      python3-virtualenv
+      sudo
       tree
+      vim
+      wget
 )
 
 export DEBIAN_FRONTEND=noninteractive
