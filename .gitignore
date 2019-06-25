@@ -43,3 +43,4 @@ ChangeLog
 .coverage.*
 
 .envrc
+tmp
