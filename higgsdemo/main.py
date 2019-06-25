@@ -20,7 +20,7 @@ class HiggsDemo(object):
 
     def __init__(self, dataset_pattern='*Higgs*', namespace='default',
             image='gcr.io/mmm-0b85/cms-higgs-4l-full', access_key='',
-            secret_key='', storage_type='gs', storage_host='https://storage.googleapis.com',
+            secret_key='', storage_type='gcs', storage_host='https://storage.googleapis.com',
             cpu_limit='900m', bucket='higgs-tutorial', output_bucket='higgs-tutorial',
             backoff_limit=5,  multipart_threads=10, output_file='/tmp/output.root',
             output_json_file='/tmp/output.json', redis_host='10.0.0.4',
@@ -141,16 +141,26 @@ class HiggsDemo(object):
     def _kube_submit(self, manifests):
         try:
             utils.create_from_yaml(self.api_client, 'cm-runjob.yaml')
+            utils.create_from_yaml(self.api_client, 'cm-getfile.yaml')
         except Exception as e:
             pass
+        # for i in range(0, len(manifests), self.limit):
+            # yaml = ''
+            # for m in manifests[i:i + self.limit]:
+                # yaml += "\n---\n%s" % m
+            # f = open('/tmp/{0}'.format(self.cluster), 'w')
+            # f.write(yaml)
+            # f.close()
+            # utils.create_from_yaml(self.api_client, '/tmp/{0}'.format(self.cluster))
+
         for i in range(0, len(manifests), self.limit):
-            yaml = ''
             for m in manifests[i:i + self.limit]:
+                yaml = ''
                 yaml += "\n---\n%s" % m
-            f = open('/tmp/{0}'.format(self.cluster), 'w')
-            f.write(yaml)
-            f.close()
-            utils.create_from_yaml(self.api_client, '/tmp/{0}'.format(self.cluster))
+                f = open('/tmp/{0}-{1}'.format(self.cluster, i), 'w')
+                f.write(yaml)
+                f.close()
+                utils.create_from_yaml(self.api_client, '/tmp/{0}-{1}'.format(self.cluster, i))
 
     def _cleanup_jobs(self):
         result = self.batch_client.delete_collection_namespaced_job(
@@ -214,6 +224,7 @@ class HiggsDemo(object):
 
     def prepare(self):
         try:
+            utils.create_from_yaml(self.api_client, 'ns-prepull.yaml')
             utils.create_from_yaml(self.api_client, 'ds-prepull.yaml')
         except Exception as exc:
             pass
