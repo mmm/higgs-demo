@@ -16,8 +16,10 @@ spec:
         image: gcr.io/mmm-0b85/notebook
         imagePullPolicy: IfNotPresent
         env:
-          name: REDIS_HOST
+        - name: REDIS_HOST
           value: higgs-redis-svc.default.svc.cluster.local
+        command: ["jupyter"]
+        args: ["notebook", "--no-browser", "--port=8888", "--ip=0.0.0.0", "--allow-root"]
         #resources:
           #requests:
             #cpu: 250m
