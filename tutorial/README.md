@@ -193,3 +193,14 @@ or
 
     docker run --rm -p 8080:1234 verb/socat TCP-LISTEN:1234,fork TCP-CONNECT:172.18.0.2:8888
 
+
+---
+
+from desktop
+
+    kubectl port-forward service/higgs-nb-svc 8888
+
+and then hit the kernels from here.  (There were cross-site scripting problems with running
+via the cloud shell port exposure)
+
+
