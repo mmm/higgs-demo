@@ -59,6 +59,8 @@ consistent with a new particle in this menagerie, the Higgs Boson.
 
 ---
 
+# notes
+
 running stuff
 
     cd src/github.com/mmm/higgs-demo/tutorial/
@@ -70,6 +72,7 @@ then if images aren't there `docker images` you'll need to build
 or load it with
 
     bzcat latest-tutorial-image.tar.bz2 | docker image load
+    cat latest-tutorial-image.tar | time docker image load
 
 and then run
 
@@ -103,7 +106,7 @@ although it doesn't seem to actually _do_ anything... there's a warning
 
 Kicking off a run
 
-    higgsdemo submit --dataset-mapping config/demo-high-mem-minimal.json --cluster kubecon-demo-0
+#    higgsdemo submit --dataset-mapping config/demo-high-mem-minimal.json --cluster kubecon-demo-0
 
 works now that the yaml files are split.
 Then you can watch the cluster status
@@ -136,7 +139,7 @@ or
 
 ok, went to the storage console... settings... interop... create new storage key, then passed these into `submit`
 
-    higgsdemo submit --dataset-mapping config/demo-high-mem-minimal.json --cluster kubecon-demo-0 --access-key "$GS_ACCESS_KEY" --secret-key "$GS_SECRET_KEY"
+#    higgsdemo submit --dataset-mapping config/demo-high-mem-minimal.json --cluster kubecon-demo-0 --access-key "$GS_ACCESS_KEY" --secret-key "$GS_SECRET_KEY"
     
 now it's failing becuase we're missing redis 10.0.0.4:6379
 
@@ -154,7 +157,12 @@ then tested from shell pod... worked fine by cluster ip addr
 
 now submit with redis
 
-    higgsdemo submit --dataset-mapping config/demo-high-mem-minimal.json --cluster kubecon-demo-0 --access-key $GS_ACCESS_KEY --secret-key $GS_SECRET_KEY --redis-host higgs-redis-svc.default.svc.cluster.local
+    higgsdemo submit \
+      --dataset-mapping config/demo-high-mem-minimal.json \
+      --cluster kubecon-demo-0 \
+      --access-key $GS_ACCESS_KEY \
+      --secret-key $GS_SECRET_KEY \
+      --redis-host higgs-redis-svc.default.svc.cluster.local
 
 need to use `higgs-redis-svc.default.svc.cluster.local`
 
