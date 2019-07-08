@@ -44,3 +44,8 @@ ChangeLog
 
 .envrc
 tmp
+
+.terraform
+*tfstate*
+.ropeproject
+
