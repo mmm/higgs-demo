@@ -23,10 +23,36 @@ Discovery of the Higgs Boson!
 
 ## Kicking things off
 
+From GCS Cloud Shell...
 
+Create the cluster
 
+    cd terraform/gke-cluster
+    terraform init
+    terraform plan
+    terraform apply
 
+Get cluster credentials
 
+    gcloud container clusters get-credentials kubecon-demo-0 --region us-central1
+
+Prep for job runs
+
+    cd ../prep
+    terraform init
+    terraform plan
+    terraform apply
+
+Run jobs
+
+    cd ../jobs
+    terraform init
+    terraform plan
+    terraform apply
+
+Visualize results
+
+    kubectl port-forward service/higgs-nb-svc 8888
 
 ## Some Background
 
