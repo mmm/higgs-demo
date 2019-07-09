@@ -21,6 +21,7 @@ resource "kubernetes_daemonset" "prepull" {
       }
 
       spec {
+        termination_grace_period_seconds = 5
         init_container {
           name  = "prepull"
           image = "gcr.io/mmm-0b85/cms-higgs-4l-full"

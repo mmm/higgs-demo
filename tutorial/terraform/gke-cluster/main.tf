@@ -63,10 +63,12 @@ resource "google_container_cluster" "kubecon-demo-0" {
       disable-legacy-endpoints = "true"
     }
 
-    #oauth_scopes = [
+    oauth_scopes = [
+      #"https://www.googleapis.com/auth/compute",
+      "https://www.googleapis.com/auth/devstorage.read_only",
       #"https://www.googleapis.com/auth/logging.write",
       #"https://www.googleapis.com/auth/monitoring",
-    #]
+    ]
 
 
     labels = {
