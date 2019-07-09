@@ -62,7 +62,7 @@ resource "kubernetes_deployment" "jupyter" {
           }
           env {
             name = "REDIS_HOST"
-            value = "higgs-redis-svc.default.svc.cluster.local"
+            value = "higgs-redis-svc.${kubernetes_namespace.higgs-tutorial.id}.svc.cluster.local"
           }
           command = ["jupyter"]
           args = ["notebook", "--no-browser", "--port=8888", "--ip=0.0.0.0", "--allow-root"]
