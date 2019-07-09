@@ -148,7 +148,7 @@ class HiggsDemo(object):
             # yaml = ''
             # for m in manifests[i:i + self.limit]:
                 # yaml += "\n---\n%s" % m
-            # f = open('/tmp/{0}'.format(self.cluster), 'w')
+            # f = open('/tmp/{0}'.format(self.cluster), 'a')
             # f.write(yaml)
             # f.close()
             # utils.create_from_yaml(self.api_client, '/tmp/{0}'.format(self.cluster))
@@ -160,7 +160,7 @@ class HiggsDemo(object):
                 f = open('/tmp/{0}-{1}'.format(self.cluster, i), 'w')
                 f.write(yaml)
                 f.close()
-                utils.create_from_yaml(self.api_client, '/tmp/{0}-{1}'.format(self.cluster, i))
+                #utils.create_from_yaml(self.api_client, '/tmp/{0}-{1}'.format(self.cluster, i))
 
     def _cleanup_jobs(self):
         result = self.batch_client.delete_collection_namespaced_job(
