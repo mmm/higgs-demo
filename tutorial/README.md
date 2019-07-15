@@ -23,6 +23,15 @@ Discovery of the Higgs Boson!
 
 ## Kicking things off
 
+need to enable services on your account... this can be done with a link
+    
+    https://console.cloud.google.com/flows/enableapi?apiid=binaryauthorization.googleapis.com,cloudbuild.googleapis.com,cloudkms.googleapis.com,container.googleapis.com,containerregistry.googleapis.com,containeranalysis.googleapis.com,sourcerepo.googleapis.com,cloudresourcemanager.googleapis.com
+
+or with gcloud commands
+
+    gcloud services list --available
+    gcloud services enable SERVICE_NAME
+
 From GCS Cloud Shell...
 
 Create the cluster
@@ -87,7 +96,11 @@ consistent with a new particle in this menagerie, the Higgs Boson.
 
 # notes
 
-running stuff
+
+---
+# development
+
+Then, running stuff
 
     cd src/github.com/mmm/higgs-demo/tutorial/
 
