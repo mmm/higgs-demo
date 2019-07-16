@@ -112,7 +112,7 @@ resource "kubernetes_job" "higgsjob" {
           }
           env {
             name = "MC_MULTIPART_THREADS"
-            value = "${var.MULTIPART_THREADS}"
+            value = "${var.MC_MULTIPART_THREADS}"
           }
           env {
             name = "S3_ACCESS"
