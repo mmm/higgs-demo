@@ -49,3 +49,4 @@ tmp
 *tfstate*
 .ropeproject
 
+*.tfvars
