@@ -2,7 +2,7 @@
 variable "sm11_job_config" {
   type = "map"
   default = {
-    NAME = "myjob"
+    BASE_NAME = "myjob"
     CMS_LUMINOSITY_DATA = "null"
     CMS_JSON = "null"
     CMS_INPUT_FILES = "null"
