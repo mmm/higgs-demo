@@ -1,6 +1,6 @@
 resource "kubernetes_job" "sm11job" {
   metadata {
-    name = "sm11legdrzzto2e2mumll47tev-pw-py600000-0001"
+    name = "${var.sm11_job_config.BASE_NAME}-0001" #"sm11legdrzzto2e2mumll47tev-pw-py600000-0001"
     namespace = "higgs-tutorial"
   }
   spec {
