@@ -1,9 +1,9 @@
 
 
 module "higgsjob-0001" {
-  source "../modules/higgsjob"
+  source = "../modules/higgsjob"
   name = "sm11legdrzzto2e2mumll47tev-pw-py600000-0001"
-  namespace = "higgs-tutorial"
+  namespace = "${var.namespace}"
 
   CMS_LUMINOSITY_DATA = "null"
   CMS_INPUT_FILES = "gs/higgs-tutorial/eos/opendata/cms/MonteCarlo2011/Summer11LegDR/ZZTo2e2mu_mll4_7TeV-powheg-pythia6/AODSIM/PU_S13_START53_LV6-v1/00000/F44F8968-6592-E411-8168-0025901D4936.root"

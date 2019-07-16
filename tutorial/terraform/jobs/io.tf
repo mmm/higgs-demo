@@ -1,4 +1,7 @@
 
+variable "namespace" {
+  default = "higgs-tutorial"
+}
 variable "GCS_ACCESS" {
   default = ""
 }
