@@ -1,6 +1,7 @@
 resource "kubernetes_job" "higgsjob" {
+  count = length(var.input_files)
   metadata {
-    name = "${var.name}" #"sm11legdrzzto2e2mumll47tev-pw-py600000-0001"
+    name = "${var.name}-${format("%04d", count.index + 1)}"
     namespace = "${var.namespace}"
   }
   spec {
@@ -17,7 +18,7 @@ resource "kubernetes_job" "higgsjob" {
           command = [ "bash", "-c", "/getfile.sh" ]
           env {
             name = "CMS_INPUT_FILES"
-            value = "${var.CMS_INPUT_FILES}"
+            value = "${var.input_files[count.index]}"
           }
           env {
             name = "GCS_ACCESS"
@@ -84,7 +85,7 @@ resource "kubernetes_job" "higgsjob" {
           }
           env {
             name = "CMS_INPUT_FILES"
-            value = "${var.CMS_INPUT_FILES}"
+            value = "${var.input_files[count.index]}"
           }
           env {
             name = "CMS_OUTPUT_FILE"
@@ -100,7 +101,7 @@ resource "kubernetes_job" "higgsjob" {
           }
           env {
             name = "CMS_OUTPUT_S3PATH"
-            value = "${var.CMS_OUTPUT_S3PATH}"
+            value = "${var.dataset}-${format("%04d", count.index + 1)}.json"
           }
           env {
             name = "CMS_CONFIG"
@@ -108,7 +109,7 @@ resource "kubernetes_job" "higgsjob" {
           }
           env {
             name = "CMS_DATASET_NAME"
-            value = "${var.CMS_DATASET_NAME}"
+            value = "${var.dataset}"
           }
           env {
             name = "MC_MULTIPART_THREADS"
