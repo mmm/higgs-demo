@@ -1,4 +1,16 @@
 
+variable "GCS_ACCESS" {
+  default = ""
+}
+variable "GCS_SECRET" {
+  default = ""
+}
+variable "GCS_HOST" {
+  default = "https://storage.googleapis.com"
+}
+variable "GCS_PROJECT_ID" {
+  default = ""
+}
 variable "sm11_job_config" {
   type = "map"
   default = {
