@@ -56,6 +56,7 @@ module "cmsrun_jobs" {
   luminosity_data = var.cmsrun_luminosity_data
 
   CMS_CONFIG = "/configs/demoanalyzer_cfg_level4data.py"
+  CMS_JSON = "/json_files/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt"
   GCS_ACCESS = "${var.GCS_ACCESS}"
   GCS_SECRET = "${var.GCS_SECRET}"
   GCS_PROJECT_ID = "${var.GCS_PROJECT_ID}"
