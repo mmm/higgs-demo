@@ -54,7 +54,8 @@ resource "kubernetes_deployment" "jupyter" {
 
       spec {
         container {
-          image = "gcr.io/mmm-0b85/notebook"
+          #image = "gcr.io/mmm-0b85/notebook"
+          image = "lukasheinrich/higgsplot:20190715"
           name  = "notebook"
           image_pull_policy = "IfNotPresent"
           port {
