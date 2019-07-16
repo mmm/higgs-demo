@@ -77,7 +77,7 @@ resource "kubernetes_job" "higgsjob" {
 
           env {
             name = "CMS_LUMINOSITY_DATA"
-            value = "${var.CMS_LUMINOSITY_DATA}"
+            value = "${length(var.luminosity_data) != 0 ? var.luminosity_data[count.index] : "null"}"
           }
           env {
             name = "CMS_JSON"

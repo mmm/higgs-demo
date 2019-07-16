@@ -12,15 +12,11 @@ variable "input_files" {
   type = list(string)
   default = []
 }
-
-
-variable "CMS_LUMINOSITY_DATA" {
-  default = "null"
+variable "luminosity_data" {
+  type = list(string)
+  default = []
 }
 variable "CMS_JSON" {
-  default = "null"
-}
-variable "CMS_INPUT_FILES" {
   default = "null"
 }
 variable "CMS_OUTPUT_FILE" {
