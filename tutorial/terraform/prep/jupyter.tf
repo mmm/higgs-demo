@@ -1,3 +1,21 @@
+
+
+resource "random_string" "jupytertoken" {
+  length = 48
+  special = false
+}
+
+resource "kubernetes_secret" "jupytertoken" {
+  metadata {
+    name = "jupytertoken"
+    namespace = "${kubernetes_namespace.higgs-tutorial.id}"
+  }
+
+  data = {
+    token = "${random_string.jupytertoken.result}"
+  }
+}
+
 #---
 #apiVersion: extensions/v1beta1
 #kind: Deployment
@@ -66,7 +84,14 @@ resource "kubernetes_deployment" "jupyter" {
             value = "higgs-redis-svc.${kubernetes_namespace.higgs-tutorial.id}.svc.cluster.local"
           }
           command = ["jupyter"]
-          args = ["notebook", "--no-browser", "--port=8888", "--ip=0.0.0.0", "--allow-root"]
+          args = [
+            "notebook",
+            "--no-browser",
+            "--port=8888",
+            "--ip=0.0.0.0",
+            "--allow-root",
+            "--NotebookApp.token=${random_string.jupytertoken.result}"
+          ]
         }
       }
     }

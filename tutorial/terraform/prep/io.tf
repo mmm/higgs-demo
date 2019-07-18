@@ -1,3 +1,6 @@
+output "jupytertoken" {
+  value = "${random_string.jupytertoken.result}"
+}
 
 #variable "kubeconfig" {
   #default = ""
