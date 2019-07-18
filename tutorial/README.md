@@ -62,6 +62,7 @@ Run jobs
 Visualize results
 
     kubectl port-forward service/higgs-nb-svc 8888
+    kubectl port-forward -n higgs-tutorial service/higgs-nb-svc 8888
 
 ## Some Background
 
@@ -251,3 +252,62 @@ and then hit the kernels from here.  (There were cross-site scripting problems w
 via the cloud shell port exposure)
 
 
+
+
+
+---
+
+
+
+crud... this is taking too long
+
+    time terraform plan -out=jobsplan
+
+with output:
+
+    Plan: 118 to add, 0 to change, 0 to destroy.
+
+    ------------------------------------------------------------------------
+
+    This plan was saved to: jobsplan
+
+    To perform exactly these actions, run the following command to apply:
+        terraform apply "jobsplan"
+
+
+    real    9m35.152s
+    user    7m4.457s
+    sys     0m6.084s
+
+
+and
+
+    time terraform apply -refresh=false -auto-approve jobsplan
+
+with output:
+
+    Apply complete! Resources: 118 added, 0 changed, 0 destroyed.
+
+    The state of your infrastructure has been saved to the path
+    below. This state is required to modify and destroy your
+    infrastructure, so keep it safe. To inspect the complete state
+    use the `terraform show` command.
+
+    State path: terraform.tfstate
+
+    real    12m43.869s
+    user    9m47.281s
+    sys     0m6.675s
+
+
+and
+
+    time terraform destroy -refresh=false -auto-approve
+
+with output:
+
+    Destroy complete! Resources: 118 destroyed.
+
+    real    4m46.655s
+    user    3m44.135s
+    sys     0m3.545s
