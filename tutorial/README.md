@@ -11,30 +11,54 @@ In this tutorial you will run the same analysis used in that Prize-winning
 Discovery of the Higgs Boson!
 
 
-## The Setup
+## The Overall Setup
 
 
 ## The Data
 
 
-## The Cluster(s)
-
-
 ## The Analysis
+
+
+## The Cluster(s)
 
 
 ## Kicking things off
 
-need to enable services on your account... this can be done with a link
+
+Create a new GCP Project for this tutorial
+
+    https://console.cloud.google.com/cloud-resource-manager
+
+Enable billing for this project
+
+    https://support.google.com/cloud/answer/6293499#enable-billing
+
+Enable services on your account... this can be done with a link
     
     https://console.cloud.google.com/flows/enableapi?apiid=binaryauthorization.googleapis.com,cloudbuild.googleapis.com,cloudkms.googleapis.com,container.googleapis.com,containerregistry.googleapis.com,containeranalysis.googleapis.com,sourcerepo.googleapis.com,cloudresourcemanager.googleapis.com
+
+    add in:
+    gce (?)
+    gcs (?)
+    gke
+    gcr
 
 or with gcloud commands
 
     gcloud services list --available
     gcloud services enable SERVICE_NAME
 
-From GCS Cloud Shell...
+In the GCP Console, go to [Cloud
+Shell](https://console.cloud.google.com/?cloudshell=true).
+
+All commands in this tutorial are run in Cloud Shell.
+
+Clone the tutorial repository
+
+    git clone https://github.com/mmm/higgs-demo
+    git checkout tutorial
+    cd higgs-demo/tutorial
 
 Create the cluster
 
