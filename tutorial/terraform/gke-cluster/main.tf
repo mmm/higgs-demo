@@ -31,7 +31,7 @@
 resource "google_container_cluster" "kubecon-demo-0" {
   name               = "kubecon-demo-0"
   location           = "us-central1"
-  initial_node_count = 3
+  initial_node_count = 1
   logging_service = "none"
   monitoring_service = "none"
   min_master_version = "1.12.8-gke.10"
