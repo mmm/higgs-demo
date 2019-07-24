@@ -1,14 +1,26 @@
 
-# Rediscovering the Higgs Boson using the Google Cloud Platform
+# Rediscovering the Higgs boson using the Google Cloud Platform
+
+# Anyone can (re-)discover the Higgs boson
 
 On 4 July 2012, Researchers at European Council for Nuclear Research (CERN)
 [announced](https://cms.cern/physics/higgs-boson/observation-new-particle-mass-125-gev)
-that they had recorded events in the ATLAS and CMS experiments at the LHC that
-had properties consistent with a new particle in this menagerie, the Higgs
-Boson.
+that they had recorded events in the ATLAS and CMS experiments at the Large
+Hadron Collider (LHC) that had properties consistent with a new particle, the
+Higgs boson.
 
-In this tutorial you will run the same analysis used in that Prize-winning
-Discovery of the Higgs Boson!
+On 8 October 2013, the Nobel Prize in Physics was awarded to Francois Englert
+and Peter W. Higgs based on this discovery.
+
+On 21 May 2019, Researchers at CERN, Lukas Heinrich and Ricardo Rocha
+[demonstrated](https://www.youtube.com/watch?v=2PRGUOxL36M)
+([slides](https://static.sched.com/hosted_files/kccnceu19/14/Lukas%20Heinrich-Ricardo%20Rocha%20May%2021%20Evening.pdf), and
+[event link](https://kccnceu19.sched.com/event/MRyv/keynote-reperforming-a-nobel-prize-discovery-on-kubernetes-ricardo-rocha-computing-engineer-lukas-heinrich-physicist-cern))
+how they reperformed the Higgs discovery using Kubernetes running on the Google
+Cloud Platform.
+
+In this tutorial you will use the GCP Cloud Shell to set up and run a small
+end-to-end slice of that analysis.
 
 
 ## The Overall Setup
