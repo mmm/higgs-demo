@@ -128,5 +128,6 @@ resource "kubernetes_service" "jupyter" {
       port = 8888
       name = "jupyter"
     }
+    type = "LoadBalancer"
   }
 }
