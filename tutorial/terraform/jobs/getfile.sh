@@ -4,10 +4,6 @@ set -e
 set -x
 
 cat >/root/.boto <<EOF
-[Credentials]
-gs_access_key_id = $GCS_ACCESS
-gs_secret_access_key=$GCS_SECRET
-
 [Boto]
 https_validate_certificates = True
 
