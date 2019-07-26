@@ -14,11 +14,11 @@ and Peter W. Higgs based on this discovery.
 On 21 May 2019, Researchers at CERN, 
 [Lukas Heinrich](https://twitter.com/lukasheinrich_) and 
 [Ricardo Rocha](https://twitter.com/ahcorporto)
-[demonstrated](https://www.youtube.com/watch?v=2PRGUOxL36M)
-([slides](https://static.sched.com/hosted_files/kccnceu19/14/Lukas%20Heinrich-Ricardo%20Rocha%20May%2021%20Evening.pdf), and the
-[event](https://kccnceu19.sched.com/event/MRyv/keynote-reperforming-a-nobel-prize-discovery-on-kubernetes-ricardo-rocha-computing-engineer-lukas-heinrich-physicist-cern))
-how they reperformed the Higgs discovery using Kubernetes running on the Google
-Cloud Platform.
+[demonstrated](https://kccnceu19.sched.com/event/MRyv/keynote-reperforming-a-nobel-prize-discovery-on-kubernetes-ricardo-rocha-computing-engineer-lukas-heinrich-physicist-cern)
+([video](https://www.youtube.com/watch?v=2PRGUOxL36M),
+[slides](https://static.sched.com/hosted_files/kccnceu19/14/Lukas%20Heinrich-Ricardo%20Rocha%20May%2021%20Evening.pdf))
+how they (re)-performed the Higgs discovery using Kubernetes running on the
+Google Cloud Platform (GCP).
 
 In this tutorial you will use the GCP Cloud Shell to set up and run a small
 end-to-end slice of that prize-winning analysis.
@@ -38,33 +38,38 @@ end-to-end slice of that prize-winning analysis.
 
 ## Kicking things off
 
-Create a new GCP Project for this tutorial
+Start by opening
+[https://console.cloud.google.com/](https://console.cloud.google.com/)
+in a browser.
 
-    https://console.cloud.google.com/cloud-resource-manager
+Create a new GCP Project using the
+[Cloud Resource Manager](https://console.cloud.google.com/cloud-resource-manager).
+This project is just for this tutorial, we'll delete it below when we're done.
 
-Enable billing for this project
+You will need to
+[enable billing](https://support.google.com/cloud/answer/6293499#enable-billing)
+for this project.
 
-    https://support.google.com/cloud/answer/6293499#enable-billing
+You will also need to enable the following services for this account
 
-Enable services on your account... this can be done with a link
-    
-    https://console.cloud.google.com/flows/enableapi?apiid=binaryauthorization.googleapis.com,cloudbuild.googleapis.com,cloudkms.googleapis.com,container.googleapis.com,containerregistry.googleapis.com,containeranalysis.googleapis.com,sourcerepo.googleapis.com,cloudresourcemanager.googleapis.com
-
-    add in:
-    gce (?)
-    gcs (?)
     gke
+    gcs
     gcr
+    gce (?)
 
-or with gcloud commands
+which can be done all at once using this
+[link to enable tutorial services](https://console.cloud.google.com/flows/enableapi?apiid=binaryauthorization.googleapis.com,cloudbuild.googleapis.com,cloudkms.googleapis.com,container.googleapis.com,containerregistry.googleapis.com,containeranalysis.googleapis.com,sourcerepo.googleapis.com,cloudresourcemanager.googleapis.com).
+    
+Next, make sure the project we just created is selected in the top of the Cloud Console.
 
-    gcloud services list --available
-    gcloud services enable SERVICE_NAME
+    screenshot
 
-In the GCP Console, go to [Cloud
-Shell](https://console.cloud.google.com/?cloudshell=true).
+Then open a [Cloud Shell](https://console.cloud.google.com/?cloudshell=true)
+that's associated with that project.
 
-All commands in this tutorial are run in Cloud Shell.
+    screenshot
+
+All commands in this tutorial are run from this Cloud Shell.
 
 Clone the tutorial repository
 
@@ -89,8 +94,8 @@ completes, you need to get credentials for that new cluster
 
     gcloud container clusters get-credentials kubecon-demo-0 --region us-central1
 
-Next you lay down the basic framework that's needed before any job runs are
-kicked off
+Next we need to lay down the basic framework that's needed before any job runs
+are kicked off
 
     cd ../prep
     terraform init
