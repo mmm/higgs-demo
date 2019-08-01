@@ -24,17 +24,35 @@ In this tutorial you will use the GCP Cloud Shell to set up and run a small
 end-to-end slice of that prize-winning analysis.
 
 
-## The Overall Setup
+## The Analysis
+
+
+    diagram (?)
 
 
 ## The Data
 
 
-## The Analysis
+    diagram (?)
 
 
-## The Cluster(s)
+## The Infrastructure
 
+
+    diagram
+
+
+### Google Kubernetes Engine
+
+### Google Cloud Storage
+
+### Kubernetes Deployments and Pods
+
+### Kubernetes Services
+
+### Kubernetes Jobs
+
+    diagram
 
 ## Kicking things off
 
@@ -127,16 +145,69 @@ data and _not_ the data coming directly from our jobs. This test data is what
 we would see if we were to run the 26,000 core cluster against the _full_ 74TB
 dataset used on stage.
 
-We've pulled a bite-sized slice of the data for this tutorial.  Once you've
+    screenshot
+
+For this tutorial, we've pulled a bite-sized slice of the data to work through
+the end-to-end analysis while not costing and arm and a leg. Once you've
 validated your notebook runs, let's point it at the Redis cache we're using to
 keep the outputs of our job runs.
 
 Block subst `'redis:data'` in the display loop.
 
-Clean up after yourself.  To avoid unwanted charges to your account, it's
-important to clean up the infrastructure resources we created here.  The
-easiest way to completely clean up after this tutorial is to simply delete the
-project we created when we started.
+    screenshot
+
+
+## Cleaning up
+
+To avoid incurring charges to your Google Cloud Platform account for the
+resources used in this tutorial:
+
+### Delete the project
+
+Caution: Deleting a project has the following effects:
+- Everything in the project is deleted. If you used an existing project for
+  this tutorial, when you delete it, you also delete any other work you've done
+  in the project.
+- Custom project IDs are lost. When you created this project, you might have
+  created a custom project ID that you want to use in the future. To preserve
+  the URLs that use the project ID, such as an appspot.com URL, delete selected
+  resources inside the project instead of deleting the whole project.
+
+1. In the GCP Console, go to the Projects page.
+
+    GO TO THE PROJECTS PAGE
+
+2. In the project list, select the project you want to delete and click Delete
+   delete.
+3. In the dialog, type the project ID, and then click Shut down to delete the
+   project.
+
+
+## References
+
+http://opendata.cern.ch/
+http://opendata.cern.ch/docs/cms-guide-for-research
+http://opendata.cern.ch/docs/cms-getting-started-2010
+http://opendata.cern.ch/docs/cms-physics-objects-2010#cms-data
+http://opendata.cern.ch/docs/cms-releases-open-data-for-machine-learning
+http://opendata.cern.ch/docs/terms-of-use
+https://cms.physicsmasterclasses.org/cms.html
+https://github.com/clelange/HiggsExample20112012
+http://opendata.cern.ch/record/5500
+
+published reference plot https://inspirehep.net/record/1124338/files/H4l_mass_v3.png
+
+building images http://ccl.cse.nd.edu/software/manuals/install.html
+https://cernvm.cern.ch/portal/downloads
+
+
+http://cylindricalonion.web.cern.ch/blog/201712/future-particle-physics-open
+
+
+
+
+
+
 
 
 
