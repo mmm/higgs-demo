@@ -13,6 +13,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+variable "namespace" {
+  default = "higgs-tutorial"
+}
+
+variable "notebook-image" {
+  #default = "gcr.io/mmm-0b85/notebook"
+  default = "lukasheinrich/higgsplot:20190715"
+}
+
+variable "higgs-cms-image" {
+  default = "gcr.io/mmm-0b85/cms-higgs-4l-full"
+}
+
+variable "higgs-worker-image" {
+  default = "gcr.io/mmm-0b85/worker"
+}
+
+
 output "jupytertoken" {
   value = "${random_string.jupytertoken.result}"
 }

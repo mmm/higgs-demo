@@ -16,7 +16,7 @@
 resource "kubernetes_daemonset" "prepull" {
   metadata {
     name = "prepull"
-    namespace = "${kubernetes_namespace.higgs-tutorial.id}"
+    namespace = "${var.namespace}"
   }
 
   spec {
@@ -37,12 +37,12 @@ resource "kubernetes_daemonset" "prepull" {
         termination_grace_period_seconds = 5
         init_container {
           name  = "prepull"
-          image = "gcr.io/mmm-0b85/cms-higgs-4l-full"
+          image = "${var.higgs-cms-image}"
           command = ["bash", "-c", "echo", "1"]
         }
         init_container {
           name  = "prepull-worker"
-          image = "gcr.io/mmm-0b85/worker"
+          image = "${var.higgs-worker-image}"
           command = ["bash", "-c", "echo", "1"]
         }
         container {

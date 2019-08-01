@@ -21,7 +21,7 @@ resource "random_string" "jupytertoken" {
 resource "kubernetes_secret" "jupytertoken" {
   metadata {
     name = "jupytertoken"
-    namespace = "${kubernetes_namespace.higgs-tutorial.id}"
+    namespace = "${var.namespace}"
   }
 
   data = {
@@ -29,39 +29,10 @@ resource "kubernetes_secret" "jupytertoken" {
   }
 }
 
-#---
-#apiVersion: extensions/v1beta1
-#kind: Deployment
-#metadata:
-  #name: higgs-nb-deployment
-#spec:
-  #replicas: 1
-  #template:
-    #metadata:
-      #annotations:
-      #labels:
-        #app: higgs-nb
-    #spec:
-      #volumes:
-      #containers:
-      #- name: notebook
-        #image: gcr.io/mmm-0b85/notebook
-        #imagePullPolicy: IfNotPresent
-        #env:
-        #- name: REDIS_HOST
-          #value: higgs-redis-svc.default.svc.cluster.local
-        #command: ["jupyter"]
-        #args: ["notebook", "--no-browser", "--port=8888", "--ip=0.0.0.0", "--allow-root"]
-        ##resources:
-          ##requests:
-            ##cpu: 250m
-            ##memory: 500Mi
-        #ports:
-        #- containerPort: 8888
 resource "kubernetes_deployment" "jupyter" {
   metadata {
     name = "higgs-nb-deployment"
-    namespace = "${kubernetes_namespace.higgs-tutorial.id}"
+    namespace = "${var.namespace}"
     #labels = {
       #app = "higgs-nb"
     #}
@@ -85,8 +56,7 @@ resource "kubernetes_deployment" "jupyter" {
 
       spec {
         container {
-          #image = "gcr.io/mmm-0b85/notebook"
-          image = "lukasheinrich/higgsplot:20190715"
+          image = "${var.notebook-image}"
           name  = "notebook"
           image_pull_policy = "IfNotPresent"
           port {
@@ -94,7 +64,7 @@ resource "kubernetes_deployment" "jupyter" {
           }
           env {
             name = "REDIS_HOST"
-            value = "higgs-redis-svc.${kubernetes_namespace.higgs-tutorial.id}.svc.cluster.local"
+            value = "higgs-redis-svc.${var.namespace}.svc.cluster.local"
           }
           command = ["jupyter"]
           args = [
@@ -111,24 +81,10 @@ resource "kubernetes_deployment" "jupyter" {
   }
 }
 
-#---
-#apiVersion: v1
-#kind: Service
-#metadata:
-  #annotations:
-  #name: higgs-nb-svc
-  #labels:
-    #app: higgs-nb
-#spec:
-  #ports:
-  #- port: 8888 
-    #name: jupyter
-  #selector:
-    #app: higgs-nb
 resource "kubernetes_service" "jupyter" {
   metadata {
     name = "higgs-nb-svc"
-    namespace = "${kubernetes_namespace.higgs-tutorial.id}"
+    namespace = "${var.namespace}"
     labels = {
       app = "higgs-nb"
     }

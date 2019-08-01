@@ -13,34 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#---
-#apiVersion: extensions/v1beta1
-#kind: Deployment
-#metadata:
-  #name: higgs-redis-deployment
-#spec:
-  #replicas: 1
-  #template:
-    #metadata:
-      #annotations:
-      #labels:
-        #app: higgs-redis
-    #spec:
-      #volumes:
-      #containers:
-      #- name: redis
-        #image: redis
-        #imagePullPolicy: IfNotPresent
-        #resources:
-          #requests:
-            #cpu: 250m
-            #memory: 500Mi
-        #ports:
-        #- containerPort: 6379
 resource "kubernetes_deployment" "redis" {
   metadata {
     name = "higgs-redis-deployment"
-    namespace = "${kubernetes_namespace.higgs-tutorial.id}"
+    namespace = "${var.namespace}"
     #labels = {
       #app = "higgs-redis"
     #}
@@ -82,24 +58,10 @@ resource "kubernetes_deployment" "redis" {
   }
 }
 
-#---
-#apiVersion: v1
-#kind: Service
-#metadata:
-  #annotations:
-  #name: higgs-redis-svc
-  #labels:
-    #app: higgs-redis 
-#spec:
-  #ports:
-  #- port: 6379 
-    #name: redis
-  #selector:
-    #app: higgs-redis
 resource "kubernetes_service" "redis" {
   metadata {
     name = "higgs-redis-svc"
-    namespace = "${kubernetes_namespace.higgs-tutorial.id}"
+    namespace = "${var.namespace}"
     labels = {
       app = "higgs-redis"
     }
