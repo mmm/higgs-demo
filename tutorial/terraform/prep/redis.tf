@@ -15,11 +15,8 @@
 
 resource "kubernetes_deployment" "redis" {
   metadata {
-    name = "higgs-redis-deployment"
+    name = "redis"
     namespace = "${var.namespace}"
-    #labels = {
-      #app = "higgs-redis"
-    #}
   }
 
   spec {
@@ -27,14 +24,14 @@ resource "kubernetes_deployment" "redis" {
 
     selector {
       match_labels = {
-        app = "higgs-redis"
+        app = "redis"
       }
     }
 
     template {
       metadata {
         labels = {
-          app = "higgs-redis"
+          app = "redis"
         }
       }
 
@@ -60,15 +57,15 @@ resource "kubernetes_deployment" "redis" {
 
 resource "kubernetes_service" "redis" {
   metadata {
-    name = "higgs-redis-svc"
+    name = "redis"
     namespace = "${var.namespace}"
     labels = {
-      app = "higgs-redis"
+      app = "redis"
     }
   }
   spec {
     selector = {
-      app = "higgs-redis"
+      app = "redis"
     }
     port {
       port = 6379

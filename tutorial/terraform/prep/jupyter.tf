@@ -31,7 +31,7 @@ resource "kubernetes_secret" "jupytertoken" {
 
 resource "kubernetes_deployment" "jupyter" {
   metadata {
-    name = "higgs-nb-deployment"
+    name = "jupyter"
     namespace = "${var.namespace}"
     #labels = {
       #app = "higgs-nb"
@@ -43,14 +43,14 @@ resource "kubernetes_deployment" "jupyter" {
 
     selector {
       match_labels = {
-        app = "higgs-nb"
+        app = "jupyter"
       }
     }
 
     template {
       metadata {
         labels = {
-          app = "higgs-nb"
+          app = "jupyter"
         }
       }
 
@@ -64,7 +64,7 @@ resource "kubernetes_deployment" "jupyter" {
           }
           env {
             name = "REDIS_HOST"
-            value = "higgs-redis-svc.${var.namespace}.svc.cluster.local"
+            value = "redis.${var.namespace}.svc.cluster.local"
           }
           command = ["jupyter"]
           args = [
@@ -83,15 +83,15 @@ resource "kubernetes_deployment" "jupyter" {
 
 resource "kubernetes_service" "jupyter" {
   metadata {
-    name = "higgs-nb-svc"
+    name = "jupyter"
     namespace = "${var.namespace}"
     labels = {
-      app = "higgs-nb"
+      app = "jupyter"
     }
   }
   spec {
     selector = {
-      app = "higgs-nb"
+      app = "jupyter"
     }
     port {
       port = 8888
