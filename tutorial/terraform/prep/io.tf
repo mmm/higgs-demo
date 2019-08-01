@@ -18,7 +18,6 @@ variable "namespace" {
 }
 
 variable "notebook-image" {
-  #default = "gcr.io/mmm-0b85/notebook"
   default = "lukasheinrich/higgsplot:20190715"
 }
 
@@ -30,6 +29,9 @@ variable "higgs-worker-image" {
   default = "gcr.io/mmm-0b85/worker"
 }
 
+output "namespace" {
+  value = "{var.namespace}"
+}
 
 output "jupytertoken" {
   value = "${random_string.jupytertoken.result}"
