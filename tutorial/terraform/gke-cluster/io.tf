@@ -41,3 +41,7 @@ variable "k8s-min-version" {
 output "k8s-cluster-name" {
   value = "${google_container_cluster.higgs-tutorial.name}"
 }
+
+output "k8s-credentials-cmd" {
+  value = "gcloud container clusters get-credentials ${google_container_cluster.higgs-tutorial.name} --region ${var.gcp-region}"
+}
