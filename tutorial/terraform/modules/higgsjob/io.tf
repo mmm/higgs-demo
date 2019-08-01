@@ -1,21 +1,32 @@
 
-variable "name" {
-  default = "myjob"
-}
+variable "name" {}
+
 variable "namespace" {
   default = "default"
 }
+
+variable "higgs-cms-image" {
+  default = "gcr.io/mmm-0b85/cms-higgs-4l-full"
+}
+
+variable "higgs-worker-image" {
+  default = "gcr.io/mmm-0b85/worker"
+}
+
 variable "dataset" {
   default = "mydataset"
 }
+
 variable "input_files" {
   type = list(string)
   default = []
 }
+
 variable "luminosity_data" {
   type = list(string)
   default = []
 }
+
 variable "CMS_JSON" {
   default = "null"
 }
@@ -68,7 +79,7 @@ variable "UPLOAD_MAX_KB" {
   default = "10000"
 }
 variable "REDIS_HOST" {
-  default = "higgs-redis-svc.default.svc.cluster.local"
+  default = "redis.default.svc.cluster.local"
 }
 variable "DPATH" {
   default = "/dev/shm"

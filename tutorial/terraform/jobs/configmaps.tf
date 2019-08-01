@@ -13,18 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#data "terraform_remote_state" "prep" {
-  #backend = "local"
-
-  #config = {
-    #path = "${path.module}/../prep/terraform.tfstate"
-  #}
-#}
-
 resource "kubernetes_config_map" "getfile" {
   metadata {
     name = "getfile"
-    namespace = "higgs-tutorial"
+    namespace = "${var.namespace}"
   }
 
   data = {
@@ -35,7 +27,7 @@ resource "kubernetes_config_map" "getfile" {
 resource "kubernetes_config_map" "runjob" {
   metadata {
     name = "runjob"
-    namespace = "higgs-tutorial"
+    namespace = "${var.namespace}"
   }
 
   data = {

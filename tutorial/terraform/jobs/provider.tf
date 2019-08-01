@@ -13,11 +13,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#terraform {
-  #backend "s3" {}
-#}
-
-provider "kubernetes" {
-  #config_path = "${var.kubeconfig}"
-  #version = "~> 1.5"
-}
+provider "kubernetes" {}

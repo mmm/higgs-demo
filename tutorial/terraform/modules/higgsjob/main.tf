@@ -14,7 +14,7 @@ resource "kubernetes_job" "higgsjob" {
 
         init_container {
           name = "prepull"
-          image = "gcr.io/mmm-0b85/worker"
+          image = "${var.higgs-worker-image}"
           command = [ "bash", "-c", "/getfile.sh" ]
           env {
             name = "CMS_INPUT_FILES"
@@ -72,7 +72,7 @@ resource "kubernetes_job" "higgsjob" {
         }
         container {
           name = "cmsrun"
-          image = "gcr.io/mmm-0b85/cms-higgs-4l-full"
+          image = "${var.higgs-cms-image}"
           command = [ "bash", "-c", "/runjob.sh" ]
 
           env {

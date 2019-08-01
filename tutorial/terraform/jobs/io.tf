@@ -16,6 +16,16 @@
 variable "namespace" {
   default = "higgs-tutorial"
 }
+
+variable "higgs-cms-image" {
+  default = "gcr.io/mmm-0b85/cms-higgs-4l-full"
+}
+
+variable "higgs-worker-image" {
+  default = "gcr.io/mmm-0b85/worker"
+}
+
+
 variable "GCS_ACCESS" {
   default = ""
 }
