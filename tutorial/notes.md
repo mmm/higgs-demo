@@ -233,3 +233,54 @@ and then hit the kernels from here.  (There were cross-site scripting problems w
 via the cloud shell port exposure)
 
 
+
+---
+
+jobs
+
+    kubectl wait --for=condition=complete job/myjob
+
+or
+
+    kubectl wait --for=condition=complete --timeout=30s job/myjob
+
+    kubectl get jobs myjob -w
+
+    until kubectl get jobs myjob -o jsonpath='{.status.conditions[? 
+        (@.type=="Complete")].status}' | grep True ; do sleep 1 ; done
+
+or even
+
+### kubernetes python lib
+
+Create new Python virtualenv:
+
+		virtualenv -p python3 kubernetes_venv activate it with
+
+    source kubernetes_venv/bin/activate
+
+and install kubernetes client with:
+
+		pip install kubernetes
+
+Create new Python script and run:
+
+		from kubernetes import client, config
+
+		config.load_kube_config()
+
+		v1 = client.BatchV1Api()
+		ret = v1.list_namespaced_job(namespace='<YOUR-JOB-NAMESPACE>', watch=False)
+		for i in ret.items:
+				print(i.status.succeeded)
+
+Remember to set up your specific kubeconfig in ~/.kube/config and valid value for your job namespace -> '<YOUR-JOB-NAMESPACE>'
+
+
+---
+
+cluster-name
+region
+project
+k8s version
+
