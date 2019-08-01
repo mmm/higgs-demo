@@ -17,7 +17,6 @@ module "cmsrun_jobs" {
   source = "../modules/higgsjob"
   name = "cmsrun2012cdoublemuparkedaod22jan2013-v120000"
   namespace = var.namespace
-  #namespace = "${data.terraform_remote_state.prep.outputs.namespace}"
 
   dataset = "cms_run2012c_doublemuparked_aod_22jan2013-v1"
   input_files = var.cmsrun_input_files
@@ -27,6 +26,6 @@ module "cmsrun_jobs" {
 
   CMS_CONFIG = "/configs/demoanalyzer_cfg_level4data.py"
   CMS_JSON = "/json_files/Cert_190456-208686_8TeV_22Jan2013ReReco_Collisions12_JSON.txt"
-  GCS_PROJECT_ID = "${var.GCS_PROJECT_ID}"
+  GCS_PROJECT_ID = "${data.external.env.result.GOOGLE_CLOUD_PROJECT}"
   REDIS_HOST = "redis.${var.namespace}.svc.cluster.local"
 }
