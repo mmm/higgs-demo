@@ -13,11 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-data "terraform_remote_state" "prep" {
-  backend = "local"
-
-  config = {
-    path = "${path.module}/../prep/terraform.tfstate"
-  }
+data "external" "env" {
+  program = ["jq", "-n", "env"]
 }
-

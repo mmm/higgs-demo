@@ -24,6 +24,6 @@ module "sm12_jobs" {
   higgs-worker-image = var.higgs-worker-image
 
   CMS_CONFIG = "/configs/demoanalyzer_cfg_level4MC.py"
-  GCS_PROJECT_ID = "${var.GCS_PROJECT_ID}"
+  GCS_PROJECT_ID = "${data.external.env.result.GOOGLE_CLOUD_PROJECT}"
   REDIS_HOST = "redis.${var.namespace}.svc.cluster.local"
 }

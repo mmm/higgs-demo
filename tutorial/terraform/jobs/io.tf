@@ -24,7 +24,3 @@ variable "higgs-cms-image" {
 variable "higgs-worker-image" {
   default = "gcr.io/mmm-0b85/worker"
 }
-
-variable "GCS_PROJECT_ID" {
-  default = ""
-}
