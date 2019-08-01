@@ -19,8 +19,8 @@ module "cmsrun_jobs" {
   namespace = var.namespace
 
   dataset = "cms_run2012c_doublemuparked_aod_22jan2013-v1"
-  input_files = var.cmsrun_input_files
-  luminosity_data = var.cmsrun_luminosity_data
+  input_files = var.cmsrun_input_files_small
+  luminosity_data = var.cmsrun_luminosity_data_small
   higgs-cms-image = var.higgs-cms-image
   higgs-worker-image = var.higgs-worker-image
 

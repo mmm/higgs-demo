@@ -13,7 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-variable "sm11_files" {
+variable "sm11_files_small" {
+  type = list(string)
+  default = [
+    "gs/higgs-tutorial/eos/opendata/cms/MonteCarlo2011/Summer11LegDR/ZZTo2e2mu_mll4_7TeV-powheg-pythia6/AODSIM/PU_S13_START53_LV6-v1/00000/F2CC2199-4492-E411-AD13-00266CFFA6F8.root",
+    "gs/higgs-tutorial/eos/opendata/cms/MonteCarlo2011/Summer11LegDR/ZZTo2e2mu_mll4_7TeV-powheg-pythia6/AODSIM/PU_S13_START53_LV6-v1/00000/F44F8968-6592-E411-8168-0025901D4936.root",
+  ]
+}
+
+variable "sm11_files_medium" {
   type = list(string)
   default = [
     "gs/higgs-tutorial/eos/opendata/cms/MonteCarlo2011/Summer11LegDR/ZZTo2e2mu_mll4_7TeV-powheg-pythia6/AODSIM/PU_S13_START53_LV6-v1/00000/0A571FF3-6392-E411-AB3D-0025904B12FC.root",
@@ -82,7 +90,15 @@ variable "sm11_files" {
   ]
 }
 
-variable "sm12_files" {
+variable "sm12_files_small" {
+  type = list(string)
+  default = [
+    "gs/higgs-tutorial/eos/opendata/cms/MonteCarlo2012/Summer12_DR53X/SMHiggsToZZTo4L_M-125_8TeV-powheg15-JHUgenV3-pythia6/AODSIM/PU_S10_START53_V19-v1/10000/F01FC321-61D9-E211-8A71-00266CFFCD6C.root",
+    "gs/higgs-tutorial/eos/opendata/cms/MonteCarlo2012/Summer12_DR53X/SMHiggsToZZTo4L_M-125_8TeV-powheg15-JHUgenV3-pythia6/AODSIM/PU_S10_START53_V19-v1/10000/F8333E82-64D9-E211-8DF3-00266CFEFDEC.root",
+  ]
+}
+
+variable "sm12_files_medium" {
   type = list(string)
   default = [
     "gs/higgs-tutorial/eos/opendata/cms/MonteCarlo2012/Summer12_DR53X/SMHiggsToZZTo4L_M-125_8TeV-powheg15-JHUgenV3-pythia6/AODSIM/PU_S10_START53_V19-v1/10000/029D759D-6CD9-E211-B3E2-1CC1DE041FD8.root",
@@ -122,7 +138,15 @@ variable "sm12_files" {
   ]
 }
 
-variable "cmsrun_input_files" {
+variable "cmsrun_input_files_small" {
+  type = list(string)
+  default = [
+    "gs/higgs-tutorial/eos/opendata/cms/Run2012C/DoubleMuParked/AOD/22Jan2013-v1/10000/F2878994-766C-E211-8693-E0CB4EA0A939.root",
+    "gs/higgs-tutorial/eos/opendata/cms/Run2012C/DoubleMuParked/AOD/22Jan2013-v1/10000/FA6ED8D4-616C-E211-AC71-20CF305B050B.root",
+  ]
+}
+
+variable "cmsrun_input_files_medium" {
   type = list(string)
   default = [
     "gs/higgs-tutorial/eos/opendata/cms/Run2012C/DoubleMuParked/AOD/22Jan2013-v1/20000/1070A5BE-B766-E211-A459-20CF3027A5E2.root",
@@ -146,7 +170,7 @@ variable "cmsrun_input_files" {
   ]
 }
 
-variable "cmsrun_luminosity_data" {
+variable "cmsrun_luminosity_data_small" {
   type = list(string)
   default = [
     "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
@@ -170,3 +194,26 @@ variable "cmsrun_luminosity_data" {
   ]
 }
 
+variable "cmsrun_luminosity_data_medium" {
+  type = list(string)
+  default = [
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+    "{\"stream\": \"mu_stream_2012\", \"value\": 178306109.36379963}",
+  ]
+}

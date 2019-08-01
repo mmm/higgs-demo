@@ -19,7 +19,7 @@ module "sm12_jobs" {
   namespace = var.namespace
 
   dataset = "sm12_dr53x_smhiggstozzto4l_m-125_8tev-pw15-j3-py6"
-  input_files = var.sm12_files
+  input_files = var.sm12_files_small
   higgs-cms-image = var.higgs-cms-image
   higgs-worker-image = var.higgs-worker-image
 

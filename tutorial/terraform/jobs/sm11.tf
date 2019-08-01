@@ -19,7 +19,7 @@ module "sm11_jobs" {
   namespace = var.namespace
 
   dataset = "sm11legdr_zzto2e2mu_mll4_7tev-pw-py6"
-  input_files = var.sm11_files
+  input_files = var.sm11_files_small
   higgs-cms-image = var.higgs-cms-image
   higgs-worker-image = var.higgs-worker-image
 
