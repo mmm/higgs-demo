@@ -13,41 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#gcloud container clusters create
-  #--quiet
-  #--async
-  #--no-enable-basic-auth
-  #--no-issue-client-certificate
-  #--disk-size 90
-  #--disk-type pd-ssd
-  #--image-type cos
-  #--machine-type {0}
-  #--num-nodes {1}
-  #--region {2}
-  #--cluster-version 1.12.8-gke.10
-  #--metadata disable-legacy-endpoints=true
-  #--no-enable-cloud-logging
-  #--no-enable-cloud-monitoring
-  #--no-enable-autorepair
-  #--enable-ip-alias
-  #--create-subnetwork name={3},range=10.{4}.0.0/21
-  #--local-ssd-count {5}
-  #{3}
-#.format(
-    #ds['flavor'],
-    #ds['nodes'],
-    #parsed_args.gcs_region,
-    #cname,
-    #(110+i),
-    #local_ssd_count)
-
-resource "google_container_cluster" "kubecon-demo-0" {
-  name               = "kubecon-demo-0"
-  location           = "us-central1"
-  initial_node_count = 1
+resource "google_container_cluster" "higgs-tutorial" {
+  name               = "${var.k8s-cluster-name}"
+  location           = "${var.gcp-region}"
+  initial_node_count = "${var.k8s-cluster-node-count}"
   logging_service = "none"
   monitoring_service = "none"
-  min_master_version = "1.12.8-gke.10"
+  min_master_version = "${var.k8s-min-version}"
 
   master_auth {
     username = ""
@@ -60,8 +32,8 @@ resource "google_container_cluster" "kubecon-demo-0" {
 
   ip_allocation_policy {
     create_subnetwork = true
-    subnetwork_name = "kubecon-demo-0"
-    node_ipv4_cidr_block = "10.110.0.0/21"
+    subnetwork_name = "${var.k8s-cluster-name}"
+    node_ipv4_cidr_block = "${var.k8s-cluster-subnet-ipv4-cidr}"
     use_ip_aliases = true
   }
 
@@ -70,7 +42,7 @@ resource "google_container_cluster" "kubecon-demo-0" {
     disk_type = "pd-ssd"
     image_type = "cos"
     local_ssd_count = 1
-    machine_type = "n1-highmem-16"
+    machine_type = "${var.k8s-cluster-node-type}"
 
     metadata = {
       disable-legacy-endpoints = "true"
@@ -85,10 +57,10 @@ resource "google_container_cluster" "kubecon-demo-0" {
 
 
     labels = {
-      foo = "bar"
+      foo = "higgs-demo"
     }
 
-    tags = ["foo", "bar"]
+    #tags = ["foo", "bar"]
   }
 
   timeouts {
