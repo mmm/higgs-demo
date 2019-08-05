@@ -26,17 +26,27 @@ end-to-end slice of that prize-winning analysis.
 
 ## The Analysis
 
+Discovery of the Higgs Boson is really
+detection of Higgs-related decay events.
 
     diagram (?)
 
 
 ## The Data
 
+Several datasets are investigated in order to determine
+if Higgs-related events are occurring in the collider.
 
     diagram (?)
 
+Here, these datasets are available in Google Cloud Storage (GCS)
+for retrieval and analysis.
+
 
 ## The Infrastructure
+
+In this tutorial, you'll use the Google Kubernetes Engine (GKE)
+to run analysis jobs against the data stored in GCS.
 
 
     diagram
@@ -78,7 +88,8 @@ You will also need to enable the following services for this account
 which can be done all at once using this
 [link to enable tutorial services](https://console.cloud.google.com/flows/enableapi?apiid=binaryauthorization.googleapis.com,cloudbuild.googleapis.com,cloudkms.googleapis.com,container.googleapis.com,containerregistry.googleapis.com,containeranalysis.googleapis.com,sourcerepo.googleapis.com,cloudresourcemanager.googleapis.com).
     
-Next, make sure the project we just created is selected in the top of the Cloud Console.
+Next, make sure the project you just created is selected in the top of the
+Cloud Console
 
     screenshot
 
@@ -95,7 +106,7 @@ Clone the tutorial repository
     git checkout tutorial
     cd higgs-demo/tutorial
 
-We'll manage cloud infrastructure resources for this tutorial using
+You'll manage cloud infrastructure resources for this tutorial using
 [Terraform](https://terraform.io/) which is already installed in your GCP Cloud
 Shell. This helps both to keep things initially as simple as possible, but also
 to promote best practices when working in the cloud.
@@ -112,7 +123,7 @@ completes, you need to get credentials for that new cluster
 
     gcloud container clusters get-credentials kubecon-demo-0 --region us-central1
 
-Next we need to lay down the basic framework that's needed before any job runs
+Next you need to lay down the basic framework that's needed before any job runs
 are kicked off
 
     cd ../prep
@@ -121,11 +132,11 @@ are kicked off
     terraform apply
 
 This will spin up a Redis cache, a Jupyter notebook server, and a Kubernetes
-Daemonset to pre-pull the docker images we'll need for analysis.  When the
-`terraform apply` completes, copy the output jupyter URL and open that in a new
+Daemonset to pre-pull the docker images you'll need for analysis.  When the
+`terraform apply` completes, copy the output Jupyter URL and open that in a new
 browser window.
 
-Now we will kick off the actual analysis jobs
+Now kick off the actual analysis jobs
 
     cd ../jobs
     terraform init
@@ -135,8 +146,8 @@ Now we will kick off the actual analysis jobs
 which essentially loads up a separate kubernetes job for each datafile in the
 dataset.
 
-We can visualize results in a Jupyter notebook as the jobs run.  From the
-browser window we opened earlier, click to open the `higgs.ipynb` notebook.
+You can visualize results in a Jupyter notebook as the jobs run.  From the
+browser window opened earlier, click to open the `higgs.ipynb` notebook.
 Click through and execute all cells in the notebook to make sure everything's
 running.
 
@@ -147,7 +158,7 @@ dataset used on stage.
 
     screenshot
 
-For this tutorial, we've pulled a bite-sized slice of the data to work through
+For this tutorial, you've pulled a bite-sized slice of the data to work through
 the end-to-end analysis while not costing and arm and a leg. Once you've
 validated your notebook runs, let's point it at the Redis cache we're using to
 keep the outputs of our job runs.
@@ -185,29 +196,29 @@ Caution: Deleting a project has the following effects:
 
 ## References
 
-http://opendata.cern.ch/
-http://opendata.cern.ch/docs/cms-guide-for-research
-http://opendata.cern.ch/docs/cms-getting-started-2010
-http://opendata.cern.ch/docs/cms-physics-objects-2010#cms-data
-http://opendata.cern.ch/docs/cms-releases-open-data-for-machine-learning
-http://opendata.cern.ch/docs/terms-of-use
-https://cms.physicsmasterclasses.org/cms.html
-https://github.com/clelange/HiggsExample20112012
-http://opendata.cern.ch/record/5500
+<http://opendata.cern.ch/>
 
-published reference plot https://inspirehep.net/record/1124338/files/H4l_mass_v3.png
+<http://opendata.cern.ch/docs/cms-guide-for-research>
 
-building images http://ccl.cse.nd.edu/software/manuals/install.html
-https://cernvm.cern.ch/portal/downloads
+<http://opendata.cern.ch/docs/cms-getting-started-2010>
 
+<http://opendata.cern.ch/docs/cms-physics-objects-2010#cms-data>
 
-http://cylindricalonion.web.cern.ch/blog/201712/future-particle-physics-open
+<http://opendata.cern.ch/docs/cms-releases-open-data-for-machine-learning>
 
+<http://opendata.cern.ch/docs/terms-of-use>
 
+<https://cms.physicsmasterclasses.org/cms.html>
 
+<https://github.com/clelange/HiggsExample20112012>
 
+<http://opendata.cern.ch/record/5500>
 
+Here is the published [reference plot](https://inspirehep.net/record/1124338/files/H4l_mass_v3.png).
 
+Here's a [guide to building CERN images](http://ccl.cse.nd.edu/software/manuals/install.html).
 
+<https://cernvm.cern.ch/portal/downloads>
 
+<http://cylindricalonion.web.cern.ch/blog/201712/future-particle-physics-open>
 
