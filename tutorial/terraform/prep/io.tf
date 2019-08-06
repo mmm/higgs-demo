@@ -30,9 +30,13 @@ variable "higgs-worker-image" {
 }
 
 output "namespace" {
-  value = "{var.namespace}"
+  value = "${var.namespace}"
 }
 
 output "jupytertoken" {
   value = "${random_string.jupytertoken.result}"
+}
+
+output "jupyter-url" {
+  value = "http://${kubernetes_service.jupyter.load_balancer_ingress[0].ip}:8888/?token=${random_string.jupytertoken.result}"
 }
