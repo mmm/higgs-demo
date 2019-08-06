@@ -11,8 +11,8 @@ On 8 October 2013, the Nobel Prize in Physics was
 Englert and Peter W. Higgs based on this discovery.
 
 On 21 May 2019, Researchers at CERN, 
-[Lukas Heinrich](https://twitter.com/lukasheinrich_) and 
-[Ricardo Rocha](https://twitter.com/ahcorporto)
+Lukas Heinrich ([`@lukasheinrich_`](https://twitter.com/lukasheinrich_)) and 
+Ricardo Rocha ([`@ahcorporto`](https://twitter.com/ahcorporto))
 [demonstrated](https://kccnceu19.sched.com/event/MRyv/keynote-reperforming-a-nobel-prize-discovery-on-kubernetes-ricardo-rocha-computing-engineer-lukas-heinrich-physicist-cern)
 ([video](https://www.youtube.com/watch?v=2PRGUOxL36M),
 [slides](https://static.sched.com/hosted_files/kccnceu19/14/Lukas%20Heinrich-Ricardo%20Rocha%20May%2021%20Evening.pdf))
@@ -42,8 +42,9 @@ if Higgs-related events are occurring in the collider.
 ## The Infrastructure
 
 In this tutorial, you'll use the Google Kubernetes Engine (GKE) to run analysis
-jobs against a limited selection of Higgs datafiles available in Google Cloud
-Storage (GCS).
+jobs against a limited selection of the
+[CERN Open Data](http://opendata.cern.ch/)
+datafiles made available in Google Cloud Storage (GCS).
 
 ![Higgs analysis - full architecture](higgs-analysis-full-architecture.svg.png)
 
