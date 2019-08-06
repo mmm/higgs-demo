@@ -128,7 +128,7 @@ Create the cluster
 This will take a few minutes for the Kubernetes nodes to come up. Once it
 completes, you need to get credentials for that new cluster
 
-    gcloud container clusters get-credentials kubecon-demo-0 --region us-central1
+    gcloud container clusters get-credentials higgs-tutorial --region us-central1
 
 Next you need to lay down the basic framework that's needed before any job runs
 are kicked off
