@@ -123,7 +123,7 @@ Create the cluster
     terraform plan
     terraform apply
 
-![Higgs analysis - create GKE cluster](higgs-analysis-create-gke-cluster.png)
+![Higgs analysis - create GKE cluster](higgs-analysis-create-gke-cluster.svg.png)
 
 This will take a few minutes for the Kubernetes nodes to come up. Once it
 completes, you need to get credentials for that new cluster
@@ -138,7 +138,7 @@ are kicked off
     terraform plan
     terraform apply
 
-![Higgs analysis - prepare for job runs](higgs-analysis-prepare-for-job-runs.png)
+![Higgs analysis - prepare for job runs](higgs-analysis-prepare-for-job-runs.svg.png)
 
 This will spin up a Redis cache, a Jupyter notebook server, and a Kubernetes
 Daemonset to pre-pull the docker images you'll need for analysis.  When the
