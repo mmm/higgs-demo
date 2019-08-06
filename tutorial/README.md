@@ -114,9 +114,9 @@ Clone the tutorial repository
     (TODO: change to dedicated repo)
 
 You'll manage cloud infrastructure resources for this tutorial using
-[Terraform](https://terraform.io/) which is already installed in your GCP Cloud
-Shell. This helps both to keep things initially as simple as possible, but also
-to promote best practices when working in the cloud.
+[Terraform](https://terraform.io/) which is already installed and configured in
+your GCP Cloud Shell. This helps both to keep things initially as simple as
+possible, but also to promote best practices when working in the cloud.
 
 Create the cluster
 
@@ -135,8 +135,8 @@ completes, you need to get credentials for that new cluster.  This should work
 but you should check the outputs from the last `terraform apply` command to
 make sure the cluster name and region are both correct.
 
-Next you need to lay down the basic framework that's needed before any job runs
-are kicked off
+Next you need to lay down the basic framework of tools that are needed before
+any job runs are kicked off
 
     cd ../prep
     terraform init
@@ -146,7 +146,7 @@ are kicked off
 ![Higgs analysis - prepare for job runs](higgs-analysis-prepare-for-job-runs.svg.png)
 
 This will spin up a Redis cache, a Jupyter notebook server, and a Kubernetes
-Daemonset to pre-pull the docker images you'll need for analysis.  When the
+Daemonset to pre-pull all the docker images needed for analysis.  When the
 `terraform apply` completes, copy the output Jupyter URL and open that in a new
 browser window.
 
@@ -174,10 +174,11 @@ what we would see if we were to run the 26,000 core cluster against the _full_
 
 ![Plot using test data](test-plot.png)
 
-For this tutorial, you've pulled a bite-sized slice of the data to work through
-the end-to-end analysis while not costing and arm and a leg. Once you've
-validated your notebook runs, let's point it at the Redis cache we're using to
-keep the outputs of our job runs.
+For this tutorial, remember you've spun up a small cluster and pulled only a
+bite-sized slice of the data. This enables you to work through the end-to-end
+analysis while still keeping costs down.  Once you've validated your notebook
+runs, now point it at the Redis cache used to store the outputs of your actual
+job runs.
 
 Within the Jupyter notebook, change the cell containing the main plot loop
 
