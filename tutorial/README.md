@@ -174,13 +174,13 @@ what we would see if we were to run the 26,000 core cluster against the _full_
 
 ![Plot using test data](test-plot.png)
 
-For this tutorial, remember you've spun up a small cluster and pulled only a
-bite-sized slice of the data. This enables you to work through the end-to-end
-analysis while still keeping costs down.  Once you've validated your notebook
-runs, now point it at the Redis cache used to store the outputs of your actual
-job runs.
+For this tutorial, you've spun up a small cluster and pulled only a bite-sized
+slice of the data. This enables you to work through the end-to-end analysis
+while still keeping costs down.
 
-Within the Jupyter notebook, change the cell containing the main plot loop
+Once you've validated your notebook runs, now point it at the Redis cache used
+to store the outputs of your actual job runs. Within the Jupyter notebook,
+change the cell containing the main plot loop
 
 ```python
 plotnb.reset_data()
