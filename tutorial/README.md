@@ -68,7 +68,7 @@ You will also need to enable the following services for this account (TODO)
     gce (?)
 
 which can be done all at once using this
-[link to enable tutorial services](https://console.cloud.google.com/flows/enableapi?apiid=binaryauthorization.googleapis.com,cloudbuild.googleapis.com,cloudkms.googleapis.com,container.googleapis.com,containerregistry.googleapis.com,containeranalysis.googleapis.com,sourcerepo.googleapis.com,cloudresourcemanager.googleapis.com).
+[link to enable tutorial services](https://console.cloud.google.com/flows/enableapi?apiid=container.googleapis.com,containerregistry.googleapis.com,containeranalysis.googleapis.com,cloudresourcemanager.googleapis.com).
 (TODO)
     
 Next, make sure the project you just created is selected in the top of the
@@ -86,9 +86,10 @@ All commands in this tutorial are run from this Cloud Shell.
 Clone the tutorial repository
 
     git clone https://github.com/mmm/higgs-demo
+    cd higgs-demo
     git checkout tutorial
-    cd higgs-demo/tutorial
-    (TODO: change to dedicated repo)
+    cd tutorial
+    (TODO: change all of this to just clone a dedicated repo)
 
 You'll manage cloud infrastructure resources for this tutorial using
 [Terraform](https://terraform.io/) which is already installed and configured in
