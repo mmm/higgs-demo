@@ -174,23 +174,26 @@ the end-to-end analysis while not costing and arm and a leg. Once you've
 validated your notebook runs, let's point it at the Redis cache we're using to
 keep the outputs of our job runs.
 
-Within the Jupyter notebook, change the cell
+Within the Jupyter notebook, change the cell containing the main plot loop
 
 ```python
 plotnb.reset_data()
 while True:
-data   = plotnb.load_data()
-groups = plotnb.update_plot(figure,data)
+    data   = plotnb.load_data()
+    groups = plotnb.update_plot(figure,data)
 ```
 
-to
+to load processed data from the Redis cache
 
 ```python
 plotnb.reset_data()
 while True:
-data   = plotnb.load_data('redis:data')
-groups = plotnb.update_plot(figure,data)
+    data   = plotnb.load_data('redis:data')
+    groups = plotnb.update_plot(figure,data)
 ```
+
+When you re-execute that cell you'll see a plot of the data just processed on
+your tutorial-sized cluster.
 
 ![Plot using tutorial data](tutorial-plot.png)
 
