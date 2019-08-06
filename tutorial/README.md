@@ -183,7 +183,7 @@ while True:
     groups = plotnb.update_plot(figure,data)
 ```
 
-to load processed data from the Redis cache
+to `load_data` from the Redis cache instead of the default test dataset
 
 ```python
 plotnb.reset_data()
