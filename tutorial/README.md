@@ -164,7 +164,7 @@ dataset.
 ![Higgs analysis - create Kubernetes Jobs](higgs-analysis-full-architecture.svg.png)
 
 You can visualize results in a Jupyter notebook as the jobs run.  From the
-browser window opened earlier, click to open the `higgs.ipynb` notebook.
+browser window opened earlier, click to open the `PlotHiggs.ipynb` notebook.
 Click through and execute all cells in the notebook to make sure everything
 is running.
 
