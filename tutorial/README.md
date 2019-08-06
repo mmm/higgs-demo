@@ -43,7 +43,8 @@ if Higgs-related events are occurring in the collider.
 ## The Infrastructure
 
 In this tutorial, you'll use the Google Kubernetes Engine (GKE) to run analysis
-jobs against some Higgs datafiles available in Google Cloud Storage (GCS).
+jobs against a limited selection of Higgs datafiles available in Google Cloud
+Storage (GCS).
 
 ![Higgs analysis - full architecture](higgs-analysis-full-architecture.svg.png)
 
