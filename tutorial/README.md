@@ -174,7 +174,23 @@ the end-to-end analysis while not costing and arm and a leg. Once you've
 validated your notebook runs, let's point it at the Redis cache we're using to
 keep the outputs of our job runs.
 
-Block subst `'redis:data'` in the display loop.
+Within the Jupyter notebook, change the cell
+
+```python
+plotnb.reset_data()
+while True:
+data   = plotnb.load_data()
+groups = plotnb.update_plot(figure,data)
+```
+
+to
+
+```python
+plotnb.reset_data()
+while True:
+data   = plotnb.load_data('redis:data')
+groups = plotnb.update_plot(figure,data)
+```
 
 ![Plot using tutorial data](tutorial-plot.png)
 
