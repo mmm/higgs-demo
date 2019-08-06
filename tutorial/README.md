@@ -39,30 +39,34 @@ if Higgs-related events are occurring in the collider.
 
     diagram (?)
 
-Here, these datasets are available in Google Cloud Storage (GCS)
-for retrieval and analysis.
-
 
 ## The Infrastructure
 
-In this tutorial, you'll use the Google Kubernetes Engine (GKE)
-to run analysis jobs against the data stored in GCS.
+In this tutorial, you'll use the Google Kubernetes Engine (GKE) to run analysis
+jobs against some Higgs datafiles available in Google Cloud Storage (GCS).
 
-
-    diagram
-
+![Higgs analysis - full architecture](higgs-analysis-full-architecture.svg.png)
 
 ### Google Kubernetes Engine
 
-### Google Cloud Storage
 
-### Kubernetes Deployments and Pods
+    templates
 
-### Kubernetes Services
+
+### Kubernetes Prep
+
+Kubernetes Deployments and Pods
+
+Kubernetes Services
+
+
+    templates
 
 ### Kubernetes Jobs
 
-    diagram
+
+    templates
+
 
 ## Kicking things off
 
@@ -118,6 +122,8 @@ Create the cluster
     terraform plan
     terraform apply
 
+![Higgs analysis - create GKE cluster](higgs-analysis-create-gke-cluster.png)
+
 This will take a few minutes for the Kubernetes nodes to come up. Once it
 completes, you need to get credentials for that new cluster
 
@@ -131,12 +137,14 @@ are kicked off
     terraform plan
     terraform apply
 
+![Higgs analysis - prepare for job runs](higgs-analysis-prepare-for-job-runs.png)
+
 This will spin up a Redis cache, a Jupyter notebook server, and a Kubernetes
 Daemonset to pre-pull the docker images you'll need for analysis.  When the
 `terraform apply` completes, copy the output Jupyter URL and open that in a new
 browser window.
 
-Now kick off the actual analysis jobs
+Now, back in your Cloud Shell, kick off the actual analysis jobs
 
     cd ../jobs
     terraform init
@@ -146,17 +154,19 @@ Now kick off the actual analysis jobs
 which essentially loads up a separate kubernetes job for each datafile in the
 dataset.
 
+![Higgs analysis - create Kubernetes Jobs](higgs-analysis-full-architecture.svg.png)
+
 You can visualize results in a Jupyter notebook as the jobs run.  From the
 browser window opened earlier, click to open the `higgs.ipynb` notebook.
 Click through and execute all cells in the notebook to make sure everything's
 running.
 
 Note that the default behavior in this notebook is to render a graph of test
-data and _not_ the data coming directly from our jobs. This test data is what
-we would see if we were to run the 26,000 core cluster against the _full_ 74TB
-dataset used on stage.
+data and _not_ the data coming directly from our jobs. This test data plot is
+what we would see if we were to run the 26,000 core cluster against the _full_
+74TB dataset used on stage.
 
-    screenshot
+![Plot using test data](test-plot.png)
 
 For this tutorial, you've pulled a bite-sized slice of the data to work through
 the end-to-end analysis while not costing and arm and a leg. Once you've
@@ -165,7 +175,7 @@ keep the outputs of our job runs.
 
 Block subst `'redis:data'` in the display loop.
 
-    screenshot
+![Plot using tutorial data](tutorial-plot.png)
 
 
 ## Cleaning up
