@@ -2,14 +2,15 @@
 
 Anyone can (re-)discover the Higgs boson!
 
-On 4 July 2012, Researchers at European Council for Nuclear Research (CERN)
+On 4 July 2012, Researchers at the European Council for Nuclear Research (CERN)
 [announced](https://cms.cern/physics/higgs-boson/observation-new-particle-mass-125-gev)
 that they had recorded events in the ATLAS and CMS experiments at the Large
 Hadron Collider (LHC) that had properties consistent with a new particle, the
 Higgs boson.
 
-On 8 October 2013, the Nobel Prize in Physics was awarded to Francois Englert
-and Peter W. Higgs based on this discovery.
+On 8 October 2013, the Nobel Prize in Physics was
+[awarded](https://www.nobelprize.org/prizes/physics/2013/summary/) to Francois
+Englert and Peter W. Higgs based on this discovery.
 
 On 21 May 2019, Researchers at CERN, 
 [Lukas Heinrich](https://twitter.com/lukasheinrich_) and 
@@ -21,10 +22,10 @@ how they (re)-performed the Higgs discovery using Kubernetes running on the
 Google Cloud Platform (GCP).
 
 In this tutorial you will use the GCP Cloud Shell to set up and run a small
-end-to-end slice of that prize-winning analysis.
+end-to-end slice of that prize-winning analysis!
 
 
-## The Analysis
+## The Analysis (TODO)
 
 Discovery of the Higgs Boson is really
 detection of Higgs-related decay events.
@@ -32,7 +33,7 @@ detection of Higgs-related decay events.
     diagram (?)
 
 
-## The Data
+## The Data (TODO)
 
 Several datasets are investigated in order to determine
 if Higgs-related events are occurring in the collider.
@@ -48,13 +49,13 @@ Storage (GCS).
 
 ![Higgs analysis - full architecture](higgs-analysis-full-architecture.svg.png)
 
-### Google Kubernetes Engine
+### Google Kubernetes Engine (TODO)
 
 
     templates
 
 
-### Kubernetes Prep
+### Kubernetes Prep (TODO)
 
 Kubernetes Deployments and Pods
 
@@ -63,7 +64,7 @@ Kubernetes Services
 
     templates
 
-### Kubernetes Jobs
+### Kubernetes Jobs (TODO)
 
 
     templates
@@ -83,7 +84,7 @@ You will need to
 [enable billing](https://support.google.com/cloud/answer/6293499#enable-billing)
 for this project.
 
-You will also need to enable the following services for this account
+You will also need to enable the following services for this account (TODO)
 
     gke
     gcs
@@ -92,16 +93,17 @@ You will also need to enable the following services for this account
 
 which can be done all at once using this
 [link to enable tutorial services](https://console.cloud.google.com/flows/enableapi?apiid=binaryauthorization.googleapis.com,cloudbuild.googleapis.com,cloudkms.googleapis.com,container.googleapis.com,containerregistry.googleapis.com,containeranalysis.googleapis.com,sourcerepo.googleapis.com,cloudresourcemanager.googleapis.com).
+(TODO)
     
 Next, make sure the project you just created is selected in the top of the
 Cloud Console
 
-    screenshot
+    screenshot (TODO)
 
 Then open a [Cloud Shell](https://console.cloud.google.com/?cloudshell=true)
 that's associated with that project.
 
-    screenshot
+    screenshot (TODO)
 
 All commands in this tutorial are run from this Cloud Shell.
 
@@ -110,6 +112,7 @@ Clone the tutorial repository
     git clone https://github.com/mmm/higgs-demo
     git checkout tutorial
     cd higgs-demo/tutorial
+    (TODO: change to dedicated repo)
 
 You'll manage cloud infrastructure resources for this tutorial using
 [Terraform](https://terraform.io/) which is already installed in your GCP Cloud
@@ -126,9 +129,12 @@ Create the cluster
 ![Higgs analysis - create GKE cluster](higgs-analysis-create-gke-cluster.svg.png)
 
 This will take a few minutes for the Kubernetes nodes to come up. Once it
-completes, you need to get credentials for that new cluster
+completes, you need to get credentials for that new cluster.  This should work
 
     gcloud container clusters get-credentials higgs-tutorial --region us-central1
+
+but you should check the outputs from the last `terraform apply` command to
+make sure the cluster name and region are both correct.
 
 Next you need to lay down the basic framework that's needed before any job runs
 are kicked off
@@ -159,8 +165,8 @@ dataset.
 
 You can visualize results in a Jupyter notebook as the jobs run.  From the
 browser window opened earlier, click to open the `higgs.ipynb` notebook.
-Click through and execute all cells in the notebook to make sure everything's
-running.
+Click through and execute all cells in the notebook to make sure everything
+is running.
 
 Note that the default behavior in this notebook is to render a graph of test
 data and _not_ the data coming directly from our jobs. This test data plot is
