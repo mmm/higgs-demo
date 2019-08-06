@@ -48,29 +48,6 @@ datafiles made available in Google Cloud Storage (GCS).
 
 ![Higgs analysis - full architecture](higgs-analysis-full-architecture.svg.png)
 
-### Google Kubernetes Engine (TODO)
-
-
-    templates
-
-
-### Kubernetes Prep (TODO)
-
-Kubernetes Deployments and Pods
-
-Kubernetes Services
-
-
-    templates
-
-### Kubernetes Jobs (TODO)
-
-
-    templates
-
-
-## Kicking things off
-
 Start by opening
 [https://console.cloud.google.com/](https://console.cloud.google.com/)
 in a browser.
