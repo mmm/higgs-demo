@@ -22,62 +22,6 @@ Google Cloud Platform (GCP).
 In this tutorial you will use the GCP Cloud Shell to set up and run a small
 end-to-end slice of that prize-winning analysis!
 
-## The Analysis
-
-Scientists learn about the fundamental building blocks (forces and particles)
-of nature by essentially smashing things together and watching what happens.
-They use particle accelerators (also known as "Colliders") to run these
-experiments, hence the "C" in LHC.
-
-The experiments that led to the Higgs discovery at the LHC used Protons as the
-particles to smash.  Well, Protons are classified by their behavior and
-composition as Hadrons, the "H" in LHC.
-
-Particle collisions show very different things at different energy scales.
-I.e., depending how _hard_ the particles are smashed together or equivalently
-how fast they are going before they collide.
-
-The Protons in the LHC were sped up to really high energy levels before being
-smashed together.  They were going so fast that the energy levels of the
-resulting collisions were in the 7-8TeV range!  This brings us to the "L" in
-LHC.  The accelerator used to speed them up to such high energy has a tunnel
-with a circumference of 27km (17mi)!
-
-This might sound pretty simplistic, but it's actually quite difficult.  A great
-deal of hard work and ingenuity goes into building the massive apparatus needed
-to perform these experiments and, just as importantly, to "see" the results of
-the collisions involved.
-
-Note that "see" means different things in different contexts.  You can't
-actually _see_ a subatomic particle with the naked eye, you _detect_ it using
-various forms of detectors.  A detector interacts with the particle in a
-known and measurable way that proves the particle was there, counts how many
-particles it sees, and might be able to determine some additional particle
-properties such as charge, mass, etc. All of this depends heavily on the
-particles being measured as well as the detectors being used to do the
-measuring.
-
-Some particles such as the Higgs boson are so hard to detect that you have to
-work at the problem indirectly.  The basic approach in that case is that a
-Higgs boson quickly decays into other sets of particles, so look for _those_
-particles. You can infer information about the Higgs boson involved in the
-process by looking at the overall shower of particle interactions from the
-collision.  You try to determine how many of the interactions seen can happen
-with or without a Higgs boson present.
-
-In order to detect particles that the Higgs boson will decay into. You compare
-the shower of decay events you expect to see through non-Higgs-related
-processes with the actual events measured in the detectors.
-
-That's exactly the analysis you'll do here.  You run jobs that compare
-simulations (of the non-Higgs-related events/processes) to actual luminosity
-data from detectors. If the luminosity data contains a "statistical excess" of
-any of these particular decay channels, then that indicates the presence of a
-new particle, the Higgs.
-
-    diagram(s) ?
-
-
 
 ## The Infrastructure
 
@@ -222,12 +166,12 @@ your tutorial-sized cluster.
 ![Plot using tutorial data](tutorial-plot.png)
 
 
-## Cleaning up
+### Cleaning up
 
 To avoid incurring charges to your Google Cloud Platform account for the
 resources used in this tutorial:
 
-### Delete the project
+#### Delete the project
 
 Caution: Deleting a project has the following effects:
 - Everything in the project is deleted. If you used an existing project for
@@ -246,6 +190,78 @@ Caution: Deleting a project has the following effects:
    delete.
 3. In the dialog, type the project ID, and then click Shut down to delete the
    project.
+
+
+## The Analysis
+
+Scientists learn about the fundamental building blocks (forces and particles)
+of nature by essentially smashing things together and watching what happens.
+They use particle accelerators (also known as "Colliders") to run these
+experiments, hence the "C" in LHC.
+
+The experiments that led to the Higgs discovery at the LHC used Protons as the
+particles to smash.  Well, Protons are classified by their behavior and
+composition as Hadrons, the "H" in LHC.
+
+Particle collisions show very different things at different energy scales.
+I.e., depending how _hard_ the particles are smashed together or equivalently
+how fast they are going before they collide.
+
+The Protons in the LHC were sped up to really high energy levels before being
+smashed together.  They were going so fast that the energy levels of the
+resulting collisions were in the 7-8TeV range!  This brings us to the "L" in
+LHC.  The accelerator used to speed them up to such high energy has a tunnel
+with a circumference of 27km (17mi)!
+
+This might sound pretty simplistic, but it's actually quite difficult.  A great
+deal of hard work and ingenuity goes into building the massive apparatus needed
+to perform these experiments and, just as importantly, to "see" the results of
+the collisions involved.
+
+Note that "see" means different things in different contexts.  You can't
+actually _see_ a subatomic particle with the naked eye, you _detect_ it using
+various forms of detectors.  A detector interacts with the particle in a
+known and measurable way that proves the particle was there, counts how many
+particles it sees, and might be able to determine some additional particle
+properties such as charge, mass, etc. All of this depends heavily on the
+particles being measured as well as the detectors being used to do the
+measuring.
+
+Some particles such as the Higgs boson are so hard to detect that you have to
+work at the problem indirectly.  The basic approach in that case is that a
+Higgs boson quickly decays into other sets of particles, so look for _those_
+particles. You can infer information about the Higgs boson involved in the
+process by looking at the overall shower of particle interactions from the
+collision.  You try to determine how many of the interactions seen can happen
+with or without a Higgs boson present.
+
+In order to detect particles that the Higgs boson will decay into. You compare
+the shower of decay events you expect to see through non-Higgs-related
+processes with the actual events measured in the detectors.
+
+That's exactly the analysis you'll do here.  You run jobs that compare
+simulations (of the non-Higgs-related events/processes) to actual luminosity
+data from detectors. If the luminosity data contains a "statistical excess" of
+any of these particular decay channels, then that indicates the presence of a
+new particle, the Higgs.
+
+    diagram(s) ?
+
+
+## Where can I go to learn more? (TODO)
+
+...or "Taking things further."
+
+Multiple directions:
+
+- Physics.  Dig further into the data.
+
+- Infrastructure.  Learn more about k8s and jobs.
+
+- Software development.  Learn more about the CERN analytics images.
+
+- Hardware development.  Learn more about the detectors used in experiments at CERN.
+
 
 
 ## References
