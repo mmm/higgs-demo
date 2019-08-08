@@ -75,15 +75,8 @@ data from detectors. If the luminosity data contains a "statistical excess" of
 any of these particular decay channels, then that indicates the presence of a
 new particle, the Higgs.
 
-    diagram (?)
+    diagram(s) ?
 
-
-## The Data (TODO)
-
-Several datasets are investigated in order to determine
-if Higgs-related events are occurring in the collider.
-
-    diagram (?)
 
 
 ## The Infrastructure
