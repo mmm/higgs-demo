@@ -25,10 +25,10 @@ end-to-end slice of that prize-winning analysis!
 
 ## The Infrastructure
 
-In this tutorial, you'll use the Google Kubernetes Engine (GKE) to run analysis
-jobs against a limited selection of the
+You will use the Google Kubernetes Engine (GKE) to run analysis jobs against a
+limited selection of the
 [CERN Open Data](http://opendata.cern.ch/)
-datafiles made available in Google Cloud Storage (GCS).
+made available in Google Cloud Storage (GCS).
 
 ![Higgs analysis - full architecture](higgs-analysis-full-architecture.svg.png)
 
