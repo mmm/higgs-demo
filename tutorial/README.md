@@ -51,7 +51,7 @@ measure the results of the collisions involved.
 
 You can't actually see a subatomic particle with the naked eye.  You detect it
 using devices which interact with the particle in known and measurable ways.
-These particle detectors might simply prove that a the particle was there,
+These particle detectors might simply prove that a particle was there,
 count how many particles it sees, or might be able to determine some additional
 particle properties such as charge, mass, etc.  All of which depends heavily on
 the particles being measured as well as the detectors being used to do the
@@ -67,14 +67,17 @@ with or without a Higgs boson present.
 
 In order to detect particles that the Higgs boson will decay into. You compare
 the shower of decay events you expect to see through non-Higgs-related (a.k.a.,
-"Background") processes with the actual events measured in the detectors.
+[Background](https://cms.cern/physics/higgs-boson-terms-and-definitions))
+processes with the actual events measured in the detectors.
 
 That's exactly the
 [analysis](https://cms.cern/physics/higgs-boson/observation-new-particle-mass-125-gev)
 you'll do here.  You run jobs that compare simulations of background
 events/processes to actual luminosity data from detectors. If the luminosity
-data contains a "statistical excess" of any of these particular decay channels,
-then that indicates the presence of a new particle, the Higgs.
+data contains a
+[statistical excess](https://cms.cern/physics/higgs-boson-terms-and-definitions)
+of any of these particular decay channels, then that indicates the presence of
+a new particle, the Higgs.
 
 
 ## The Infrastructure
