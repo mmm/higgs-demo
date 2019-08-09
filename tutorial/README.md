@@ -29,8 +29,8 @@ Scientists learn about the fundamental building blocks (forces and particles)
 of nature by essentially smashing things together and watching what happens.
 They use a type of 
 [particle accelerator](https://en.wikipedia.org/wiki/Particle_accelerator)
-called a [Collider](https://en.wikipedia.org/wiki/Collider) to run these
-experiments.  This is the "C" in LHC.
+(unsurprisingly called a [Collider](https://en.wikipedia.org/wiki/Collider)!)
+to run these experiments.  This is the "C" in LHC.
 
 The experiments that led to the Higgs discovery at the LHC used Protons as the
 particles to smash.  Protons are classified by their behavior and composition
