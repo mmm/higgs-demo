@@ -235,21 +235,15 @@ collision.  You try to determine how many of the interactions seen can happen
 with or without a Higgs boson present.
 
 In order to detect particles that the Higgs boson will decay into. You compare
-the shower of decay events you expect to see through non-Higgs-related
-processes with the actual events measured in the detectors.
+the shower of decay events you expect to see through non-Higgs-related (a.k.a.,
+"Background") processes with the actual events measured in the detectors.
 
 That's exactly the
 [analysis](https://cms.cern/physics/higgs-boson/observation-new-particle-mass-125-gev)
-you'll do here.  You run jobs that compare simulations (of the
-non-Higgs-related events/processes) to actual luminosity data from detectors.
-If the luminosity data contains a "statistical excess" of any of these
-particular decay channels, then that indicates the presence of a new particle,
-the Higgs.
-
-[related terms](https://cms.cern/physics/higgs-boson-terms-and-definitions)
-[CMS](https://en.wikipedia.org/wiki/Compact_Muon_Solenoid)
-
-    diagram(s) ?
+you'll do here.  You run jobs that compare simulations of background
+events/processes to actual luminosity data from detectors. If the luminosity
+data contains a "statistical excess" of any of these particular decay channels,
+then that indicates the presence of a new particle, the Higgs.
 
 
 ## Learn More
@@ -257,6 +251,11 @@ the Higgs.
 Multiple directions:
 
 - Physics.  Dig further into the data.
+
+  [related terms](https://cms.cern/physics/higgs-boson-terms-and-definitions)
+
+  [CMS](https://en.wikipedia.org/wiki/Compact_Muon_Solenoid)
+
 
 - Infrastructure.  Learn more about k8s and jobs.
 
