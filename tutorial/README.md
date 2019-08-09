@@ -230,7 +230,7 @@ your tutorial-sized cluster.
 To avoid incurring charges to your Google Cloud Platform account for the
 resources used in this tutorial:
 
-#### Delete the project
+#### Delete the project using the GCP Cloud Console
 
 The easiest way to clean up all of the resources used in this tutorial is
 to delete the project that you initially created for the tutorial.
@@ -275,22 +275,26 @@ and
 
 ## Where can you learn more?
 
-There are so many exciting directions to go to learn more about what you've
+There are so many exciting directions to take to learn more about what you've
 done here!
 
-- Physics.  You can dig further into Particle Physics.
+- Physics.  You can dig further into
+  [Physics at CERN](https://home.cern/science/physics).
 
-  [Higgs-related terms](https://cms.cern/physics/higgs-boson-terms-and-definitions)
+- Infrastructure.  Learn more about
+  [Cloud](https://cloud.google.com/),
+  [Kubernetes](https://cloud.google.com/kubernetes),
+  High Performance Computing (HPC) on GCP
+  [reference architectures](https://cloud.google.com/solutions/hpc/) and 
+  [posts](https://cloud.google.com/blog/topics/hpc).
 
+- Software development.  Learn more about
+  [CERN software](https://ep-dep-sft.web.cern.ch).
 
-- Infrastructure.  Learn more about Cloud, Kubernetes, or High Performance
-  Computing (HPC) tools and workflows.
-
-- Software development.  Learn more about the CERN analytics images.
-
-- Hardware development.  Learn more about the detectors used in experiments at CERN.
-
-  [CMS](https://en.wikipedia.org/wiki/Compact_Muon_Solenoid)
+- Hardware development.  Learn more about the detectors used in experiments at CERN
+  like [CMS](https://home.cern/science/experiments/cms),
+  [ATLAS](https://home.cern/science/experiments/atlas),
+  and [other experiments](https://home.cern/science/experiments)!
 
 
 ## References
