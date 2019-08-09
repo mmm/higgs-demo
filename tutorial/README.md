@@ -23,12 +23,12 @@ In this tutorial you will use the GCP Cloud Shell to set up and run a small
 end-to-end slice of that prize-winning analysis!
 
 
-## The Infrastructure
+## Infrastructure
 
-You will use the Google Kubernetes Engine (GKE) to run analysis jobs against a
-limited selection of the
+Google Kubernetes Engine (GKE) provides the core infrastructure you'll use to
+run analysis jobs against a selection of the
 [CERN Open Data](http://opendata.cern.ch/)
-made available in Google Cloud Storage (GCS).
+available in Google Cloud Storage (GCS).
 
 ![Higgs analysis - full architecture](higgs-analysis-full-architecture.svg.png)
 
@@ -192,43 +192,42 @@ Caution: Deleting a project has the following effects:
    project.
 
 
-## The Analysis
+## Analysis
 
 Scientists learn about the fundamental building blocks (forces and particles)
 of nature by essentially smashing things together and watching what happens.
-They use particle accelerators (also known as "Colliders") to run these
-experiments, hence the "C" in LHC.
+They use a type of 
+[particle accelerator](https://en.wikipedia.org/wiki/Particle_accelerator)
+called a [Collider](https://en.wikipedia.org/wiki/Collider) to run these
+experiments.  This is the "C" in LHC.
 
 The experiments that led to the Higgs discovery at the LHC used Protons as the
-particles to smash.  Well, Protons are classified by their behavior and
-composition as Hadrons, the "H" in LHC.
+particles to smash.  Protons are classified by their behavior and composition
+as [Hadrons](https://en.wikipedia.org/wiki/Hadron), the "H" in LHC.
 
 Particle collisions show very different things at different energy scales.
 I.e., depending how _hard_ the particles are smashed together or equivalently
-how fast they are going before they collide.
+how fast they are going before they collide. The Protons in the LHC were sped
+up to really high energy levels before being smashed together.  They were going
+so fast that the energy levels of the resulting collisions were in the 7-8
+[TeV](https://en.wikipedia.org/wiki/Electronvolt) range!  The accelerator used
+to speed them up to such high energy has a tunnel with a circumference of 27km
+(17mi), the "L" in LHC.
 
-The Protons in the LHC were sped up to really high energy levels before being
-smashed together.  They were going so fast that the energy levels of the
-resulting collisions were in the 7-8TeV range!  This brings us to the "L" in
-LHC.  The accelerator used to speed them up to such high energy has a tunnel
-with a circumference of 27km (17mi)!
+A great deal of hard work and ingenuity goes into building the massive
+apparatus needed to perform these experiments and, just as importantly, to
+measure the results of the collisions involved.
 
-This might sound pretty simplistic, but it's actually quite difficult.  A great
-deal of hard work and ingenuity goes into building the massive apparatus needed
-to perform these experiments and, just as importantly, to "see" the results of
-the collisions involved.
-
-Note that "see" means different things in different contexts.  You can't
-actually _see_ a subatomic particle with the naked eye, you _detect_ it using
-various forms of detectors.  A detector interacts with the particle in a
-known and measurable way that proves the particle was there, counts how many
-particles it sees, and might be able to determine some additional particle
-properties such as charge, mass, etc. All of this depends heavily on the
-particles being measured as well as the detectors being used to do the
+You can't actually see a subatomic particle with the naked eye.  You detect it
+using devices which interact with the particle in known and measurable ways.
+These particle detectors might simply prove that a the particle was there,
+count how many particles it sees, or might be able to determine some additional
+particle properties such as charge, mass, etc.  All of which depends heavily on
+the particles being measured as well as the detectors being used to do the
 measuring.
 
 Some particles such as the Higgs boson are so hard to detect that you have to
-work at the problem indirectly.  The basic approach in that case is that a
+work at the problem indirectly.  The basic approach in this case is that a
 Higgs boson quickly decays into other sets of particles, so look for _those_
 particles. You can infer information about the Higgs boson involved in the
 process by looking at the overall shower of particle interactions from the
@@ -239,18 +238,21 @@ In order to detect particles that the Higgs boson will decay into. You compare
 the shower of decay events you expect to see through non-Higgs-related
 processes with the actual events measured in the detectors.
 
-That's exactly the analysis you'll do here.  You run jobs that compare
-simulations (of the non-Higgs-related events/processes) to actual luminosity
-data from detectors. If the luminosity data contains a "statistical excess" of
-any of these particular decay channels, then that indicates the presence of a
-new particle, the Higgs.
+That's exactly the
+[analysis](https://cms.cern/physics/higgs-boson/observation-new-particle-mass-125-gev)
+you'll do here.  You run jobs that compare simulations (of the
+non-Higgs-related events/processes) to actual luminosity data from detectors.
+If the luminosity data contains a "statistical excess" of any of these
+particular decay channels, then that indicates the presence of a new particle,
+the Higgs.
+
+[related terms](https://cms.cern/physics/higgs-boson-terms-and-definitions)
+[CMS](https://en.wikipedia.org/wiki/Compact_Muon_Solenoid)
 
     diagram(s) ?
 
 
-## Where can I go to learn more? (TODO)
-
-...or "Taking things further."
+## Learn More
 
 Multiple directions:
 
