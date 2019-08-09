@@ -233,7 +233,7 @@ resources used in this tutorial:
 #### Delete the project
 
 The easiest way to clean up all of the resources used in this tutorial is
-just to delete the project that you initially created for the tutorial.
+to delete the project that you initially created for the tutorial.
 
 Caution: Deleting a project has the following effects:
 - Everything in the project is deleted. If you used an existing project for
@@ -255,7 +255,7 @@ Caution: Deleting a project has the following effects:
 
 #### Deleting resources using Terraform
 
-Alternatively, if you added the tutorial resources to an existing project, you
+Alternatively, if you added the tutorial resources to an _existing_ project, you
 can still clean up those resources using Terraform.
 
 From the `jobs` sub-directory, run
@@ -275,21 +275,22 @@ and
 
 ## Where can you learn more?
 
-Multiple directions:
+There are so many exciting directions to go to learn more about what you've
+done here!
 
-- Physics.  Dig further into the data.
+- Physics.  You can dig further into Particle Physics.
 
-  [related terms](https://cms.cern/physics/higgs-boson-terms-and-definitions)
-
-  [CMS](https://en.wikipedia.org/wiki/Compact_Muon_Solenoid)
+  [Higgs-related terms](https://cms.cern/physics/higgs-boson-terms-and-definitions)
 
 
-- Infrastructure.  Learn more about k8s and jobs.
+- Infrastructure.  Learn more about Cloud, Kubernetes, or High Performance
+  Computing (HPC) tools and workflows.
 
 - Software development.  Learn more about the CERN analytics images.
 
 - Hardware development.  Learn more about the detectors used in experiments at CERN.
 
+  [CMS](https://en.wikipedia.org/wiki/Compact_Muon_Solenoid)
 
 
 ## References
