@@ -23,7 +23,7 @@ In this tutorial you will use the GCP Cloud Shell to set up and run a small
 end-to-end slice of that prize-winning analysis!
 
 
-## Analysis
+## The Analysis
 
 Scientists learn about the fundamental building blocks (forces and particles)
 of nature by essentially smashing things together and watching what happens.
@@ -77,7 +77,7 @@ data contains a "statistical excess" of any of these particular decay channels,
 then that indicates the presence of a new particle, the Higgs.
 
 
-## Infrastructure
+## The Infrastructure
 
 Google Kubernetes Engine (GKE) provides the core infrastructure you'll use to
 run analysis jobs against a selection of the
@@ -220,12 +220,15 @@ your tutorial-sized cluster.
 ![Plot using tutorial data](tutorial-plot.png)
 
 
-### Cleaning up
+### The Cleanup
 
 To avoid incurring charges to your Google Cloud Platform account for the
 resources used in this tutorial:
 
 #### Delete the project
+
+The easiest way to clean up all of the resources used in this tutorial is
+just to delete the project that you initially created for the tutorial.
 
 Caution: Deleting a project has the following effects:
 - Everything in the project is deleted. If you used an existing project for
@@ -245,8 +248,27 @@ Caution: Deleting a project has the following effects:
 3. In the dialog, type the project ID, and then click Shut down to delete the
    project.
 
+#### Deleting resources using Terraform
 
-## Learn More
+Alternatively, if you added the tutorial resources to an existing project, you
+can still clean up those resources using Terraform.
+
+From the `jobs` sub-directory, run
+
+    terraform destroy
+
+then
+
+    cd ../prep
+    terraform destroy
+
+and
+
+    cd ../gke-cluster
+    terraform destroy
+
+
+## Where can you learn more?
 
 Multiple directions:
 
