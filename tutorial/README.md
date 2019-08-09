@@ -66,7 +66,9 @@ collision.  You try to determine how many of the interactions seen can happen
 with or without a Higgs boson present.
 
 In order to detect particles that the Higgs boson will decay into. You compare
-the shower of decay events you expect to see through non-Higgs-related (a.k.a.,
+the shower of decay events
+([decay channels](https://cms.cern/physics/higgs-boson-terms-and-definitions))
+that you expect to see through non-Higgs-related (a.k.a.,
 [Background](https://cms.cern/physics/higgs-boson-terms-and-definitions))
 processes with the actual events measured in the detectors.
 
