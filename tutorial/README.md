@@ -296,32 +296,3 @@ done here!
   [ATLAS](https://home.cern/science/experiments/atlas),
   and [other experiments](https://home.cern/science/experiments)!
 
-
-## References
-
-<http://opendata.cern.ch/>
-
-<http://opendata.cern.ch/docs/cms-guide-for-research>
-
-<http://opendata.cern.ch/docs/cms-getting-started-2010>
-
-<http://opendata.cern.ch/docs/cms-physics-objects-2010#cms-data>
-
-<http://opendata.cern.ch/docs/cms-releases-open-data-for-machine-learning>
-
-<http://opendata.cern.ch/docs/terms-of-use>
-
-<https://cms.physicsmasterclasses.org/cms.html>
-
-<https://github.com/clelange/HiggsExample20112012>
-
-<http://opendata.cern.ch/record/5500>
-
-Here is the published [reference plot](https://inspirehep.net/record/1124338/files/H4l_mass_v3.png).
-
-Here's a [guide to building CERN images](http://ccl.cse.nd.edu/software/manuals/install.html).
-
-<https://cernvm.cern.ch/portal/downloads>
-
-<http://cylindricalonion.web.cern.ch/blog/201712/future-particle-physics-open>
-
