@@ -25,6 +25,9 @@ Google Cloud Platform (GCP) using over 20k cores and over 70 TB of data stored
 on Google Cloud Storage.  They completed this analysis onstage in a matter of
 minutes.
 
+
+## Objectives
+
 In this tutorial you will use the GCP Cloud Shell to set up and run a small
 end-to-end slice of that prize-winning analysis!
 
@@ -97,6 +100,12 @@ available in Google Cloud Storage (GCS).
 
 ![Higgs analysis - full architecture](higgs-analysis-full-architecture.svg.png)
 
+
+## Costs
+
+
+## Before you begin
+
 Start by opening
 [https://console.cloud.google.com/](https://console.cloud.google.com/)
 in a browser.
@@ -132,6 +141,9 @@ that's associated with that project.
 
 All commands in this tutorial are run from this Cloud Shell.
 
+
+## Code
+
 Clone the tutorial repository
 
     git clone https://github.com/mmm/higgs-demo
@@ -144,6 +156,9 @@ You'll manage cloud infrastructure resources for this tutorial using
 [Terraform](https://terraform.io/) which is already installed and configured in
 your GCP Cloud Shell. This helps both to keep things initially as simple as
 possible, but also to promote best practices when working in the cloud.
+
+
+## Create a Kubernetes cluster
 
 Create the cluster
 
@@ -161,6 +176,9 @@ completes, you get credentials for that new cluster using the following command:
 
 Set the cluster name and region if you've changed these default values.
 
+
+## Deploy Jupyter and Redis
+
 Next lay down the basic framework of tools that are needed before any job runs
 are kicked off
 
@@ -176,6 +194,9 @@ Daemonset to pre-pull all the docker images needed for analysis.  When the
 `terraform apply` completes, copy the output Jupyter URL and open that in a new
 browser window.
 
+
+## Kick off Kubernetes jobs
+
 Now, back in your Cloud Shell, kick off the actual analysis jobs
 
     cd ../jobs
@@ -187,6 +208,9 @@ which essentially loads up a separate kubernetes job for each datafile in the
 dataset.
 
 ![Higgs analysis - create Kubernetes Jobs](higgs-analysis-full-architecture.svg.png)
+
+
+## Visualize results
 
 You can visualize results in a Jupyter notebook as the jobs run.  From the
 browser window opened earlier, click to open the `PlotHiggs.ipynb` notebook.
@@ -230,12 +254,12 @@ your tutorial-sized cluster.
 ![Plot using tutorial data](tutorial-plot.png)
 
 
-### Cleaning up
+## Cleaning up
 
 To avoid incurring charges to your Google Cloud Platform account for the
 resources used in this tutorial:
 
-#### Delete the project using the GCP Cloud Console
+### Delete the project using the GCP Cloud Console
 
 The easiest way to clean up all of the resources used in this tutorial is
 to delete the project that you initially created for the tutorial.
@@ -258,7 +282,7 @@ Caution: Deleting a project has the following effects:
 3. In the dialog, type the project ID, and then click Shut down to delete the
    project.
 
-#### Deleting resources using Terraform
+### Deleting resources using Terraform
 
 Alternatively, if you added the tutorial resources to an _existing_ project, you
 can still clean up those resources using Terraform.
