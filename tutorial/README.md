@@ -6,13 +6,14 @@ that they had recorded events in the ATLAS and CMS experiments at the Large
 Hadron Collider (LHC) that had properties consistent with a new particle, the
 Higgs boson.
 
+The corresponding analysis required specialized High Performance Compute (HPC)
+hardware spread throughout datacenters around the world, with significant human
+coordination across the sites. It was a massive effort requiring lots of
+people, compute, and storage resources.
+
 On 8 October 2013, the Nobel Prize in Physics was
 [awarded](https://www.nobelprize.org/prizes/physics/2013/summary/) to Francois
 Englert and Peter W. Higgs based on this discovery.
-
-The corresponding analysis required compute hardware in datacenters around the
-world, with significant human coordination across the sites. It was a massive
-effort requiring lots of people, compute, and storage resources.
 
 On 21 May 2019, Researchers at CERN, 
 Lukas Heinrich ([`@lukasheinrich_`](https://twitter.com/lukasheinrich_)) and 
@@ -32,7 +33,7 @@ In this tutorial you will use the GCP Cloud Shell to set up and run a small
 end-to-end slice of that prize-winning analysis!
 
 
-## The Analysis
+### The Analysis
 
 Scientists learn about the fundamental building blocks (forces and particles)
 of nature by essentially smashing things together and watching what happens.
@@ -91,7 +92,7 @@ of any of these particular decay channels, then that indicates the presence of
 a new particle, the Higgs.
 
 
-## The Infrastructure
+### The Infrastructure
 
 Google Kubernetes Engine (GKE) provides the core infrastructure you'll use to
 run analysis jobs against a selection of the
@@ -103,6 +104,16 @@ available in Google Cloud Storage (GCS).
 
 ## Costs
 
+This tutorial uses billable components of Google Cloud Platform, including:
+
+- Kubernetes Engine
+- Container Registry
+- Cloud Storage
+
+You can use the
+[Pricing Calculator](https://cloud.google.com/products/calculator)
+to generate a cost estimate based on your projected usage.
+
 
 ## Before you begin
 
@@ -112,45 +123,42 @@ in a browser.
 
 Create a new GCP Project using the
 [Cloud Resource Manager](https://console.cloud.google.com/cloud-resource-manager).
-This project is just for this tutorial, we'll delete it below when we're done.
+The project you create is just for this tutorial, so you'll delete it below
+when you're done.
 
 You will need to
 [enable billing](https://support.google.com/cloud/answer/6293499#enable-billing)
 for this project.
 
-You will also need to enable the following services for this account (TODO)
-
-    gke
-    gcs
-    gcr
-    gce (?)
-
-which can be done all at once using this
+You will also need to enable the Kubernetes Engine (GKE) service for this account,
+which can be done using this
 [link to enable tutorial services](https://console.cloud.google.com/flows/enableapi?apiid=container.googleapis.com,containerregistry.googleapis.com,containeranalysis.googleapis.com,cloudresourcemanager.googleapis.com).
-(TODO)
     
 Next, make sure the project you just created is selected in the top of the
 Cloud Console
 
-    screenshot (TODO)
+    screenshot of cloud console project selection [Editor: please help]
 
-Then open a [Cloud Shell](https://console.cloud.google.com/?cloudshell=true)
-that's associated with that project.
+Then open a Cloud Shell associated with the project you just created
 
-    screenshot (TODO)
+[Launch Cloud Shell](https://console.cloud.google.com/?cloudshell=true)
+
+It's important that the current Cloud Shell project is the one you just
+created.  Verify that
+
+    echo $GOOGLE_CLOUD_PROJECT
+
+shows that new project.
 
 All commands in this tutorial are run from this Cloud Shell.
 
 
-## Code
+## Download the code
 
 Clone the tutorial repository
 
-    git clone https://github.com/mmm/higgs-demo
-    cd higgs-demo
-    git checkout tutorial
-    cd tutorial
-    (TODO: change all of this to just clone a dedicated repo)
+    git clone https://github.com/mmm/higgs-tutorial
+    cd higgs-tutorial
 
 You'll manage cloud infrastructure resources for this tutorial using
 [Terraform](https://terraform.io/) which is already installed and configured in
@@ -169,8 +177,13 @@ Create the cluster
 
 ![Higgs analysis - create GKE cluster](higgs-analysis-create-gke-cluster.svg.png)
 
-This will take a few minutes for the Kubernetes nodes to come up. Once it
-completes, you get credentials for that new cluster using the following command:
+This will take a few minutes for the Kubernetes nodes to come up.
+
+
+## Get cluster credentials
+
+Once the previous commands complete, get credentials for that new cluster using
+the following command:
 
     gcloud container clusters get-credentials higgs-tutorial --region us-central1
 
