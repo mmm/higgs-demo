@@ -10,6 +10,10 @@ On 8 October 2013, the Nobel Prize in Physics was
 [awarded](https://www.nobelprize.org/prizes/physics/2013/summary/) to Francois
 Englert and Peter W. Higgs based on this discovery.
 
+The corresponding analysis required compute hardware in datacenters around the
+world, with significant human coordination across the sites. It was a massive
+effort requiring lots of people, compute, and storage resources.
+
 On 21 May 2019, Researchers at CERN, 
 Lukas Heinrich ([`@lukasheinrich_`](https://twitter.com/lukasheinrich_)) and 
 Ricardo Rocha ([`@ahcorporto`](https://twitter.com/ahcorporto))
@@ -17,7 +21,9 @@ Ricardo Rocha ([`@ahcorporto`](https://twitter.com/ahcorporto))
 ([video](https://www.youtube.com/watch?v=2PRGUOxL36M),
 [slides](https://static.sched.com/hosted_files/kccnceu19/14/Lukas%20Heinrich-Ricardo%20Rocha%20May%2021%20Evening.pdf))
 how they (re)-performed the Higgs discovery using Kubernetes running on the
-Google Cloud Platform (GCP).
+Google Cloud Platform (GCP) using over 20k cores and over 70 TB of data stored
+on Google Cloud Storage.  They completed this analysis onstage in a matter of
+minutes.
 
 In this tutorial you will use the GCP Cloud Shell to set up and run a small
 end-to-end slice of that prize-winning analysis!
@@ -149,15 +155,14 @@ Create the cluster
 ![Higgs analysis - create GKE cluster](higgs-analysis-create-gke-cluster.svg.png)
 
 This will take a few minutes for the Kubernetes nodes to come up. Once it
-completes, you need to get credentials for that new cluster.  This should work
+completes, you get credentials for that new cluster using the following command:
 
     gcloud container clusters get-credentials higgs-tutorial --region us-central1
 
-but you should check the outputs from the last `terraform apply` command to
-make sure the cluster name and region are both correct.
+Set the cluster name and region if you've changed these default values.
 
-Next you need to lay down the basic framework of tools that are needed before
-any job runs are kicked off
+Next lay down the basic framework of tools that are needed before any job runs
+are kicked off
 
     cd ../prep
     terraform init
@@ -225,7 +230,7 @@ your tutorial-sized cluster.
 ![Plot using tutorial data](tutorial-plot.png)
 
 
-### The Cleanup
+### Cleaning up
 
 To avoid incurring charges to your Google Cloud Platform account for the
 resources used in this tutorial:
@@ -273,7 +278,7 @@ and
     terraform destroy
 
 
-## Where can you learn more?
+## What's next
 
 There are so many exciting directions to take to learn more about what you've
 done here!
