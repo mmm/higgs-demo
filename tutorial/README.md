@@ -130,9 +130,9 @@ You will need to
 [enable billing](https://support.google.com/cloud/answer/6293499#enable-billing)
 for this project.
 
-You will also need to enable the Kubernetes Engine (GKE) service for this account,
-which can be done using this
-[link to enable tutorial services](https://console.cloud.google.com/flows/enableapi?apiid=container.googleapis.com,containerregistry.googleapis.com,containeranalysis.googleapis.com,cloudresourcemanager.googleapis.com).
+You will also need to enable the Kubernetes Engine (GKE) service for this account
+
+[Enable Tutorial Services](https://console.cloud.google.com/flows/enableapi?apiid=container.googleapis.com,containerregistry.googleapis.com,containeranalysis.googleapis.com,cloudresourcemanager.googleapis.com)
     
 Next, make sure the project you just created is selected in the top of the
 Cloud Console
