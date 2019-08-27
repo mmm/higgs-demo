@@ -6,10 +6,10 @@ that they had recorded events in the ATLAS and CMS experiments at the Large
 Hadron Collider (LHC) that had properties consistent with a new particle, the
 Higgs boson.
 
-The corresponding analysis required specialized High Performance Compute (HPC)
-hardware spread throughout datacenters around the world, with significant human
-coordination across the sites. It was a massive effort requiring lots of
-people, compute, and storage resources.
+The corresponding analysis required compute hardware spread throughout
+datacenters around the world, with significant human coordination across the
+sites. It was a massive effort requiring lots of people, compute, and storage
+resources.
 
 On 8 October 2013, the Nobel Prize in Physics was
 [awarded](https://www.nobelprize.org/prizes/physics/2013/summary/) to Francois
